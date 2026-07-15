@@ -1,34 +1,37 @@
 'use client';
 
 import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function YitzhakAzranCoaching() {
+  const router = useRouter();
   const [goal, setGoal] = useState<'build' | 'shred' | 'tone'>('build');
   const [level, setLevel] = useState<'beginner' | 'advanced'>('beginner');
-  const [recommendation, setRecommendation] = useState('');
+  const [loading, setLoading] = useState(false);
 
-  const calculatePlan = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    let text = '';
-    if (goal === 'build' && level === 'beginner') {
-      text = 'תוכנית Hypertrophy-X: 3 אימוני כוח בשבוע + ליווי תזונתי לעלייה נקייה.';
-    } else if (goal === 'build' && level === 'advanced') {
-      text = 'תוכנית Iron-Elite: 5 ימי פיצול (Push/Pull/Legs) אגרסיביים אונליין.';
-    } else if (goal === 'shred') {
-      text = 'תוכנית Shred-Protocol: שילוב כוח וגרעון קלורי מבוקר עם מעקב יומי בוואטסאפ.';
-    } else {
-      text = 'תוכנית Hybrid-Fit: שיפור סיבולת, כוח פונקציונלי וגמישות מהבית או מהסטודיו.';
-    }
-    setRecommendation(text);
+    setLoading(true);
+    
+    setTimeout(() => {
+      router.push(`/result?goal=${goal}&level=${level}`);
+    }, 2000);
   };
 
   return (
     <div className="min-h-screen bg-black text-white font-sans selection:bg-lime-400 selection:text-black">
       
-      {/* 1. HERO SECTION */}
+      {loading && (
+        <div className="fixed inset-0 bg-black/95 z-50 flex flex-col items-center justify-center text-center p-6">
+          <div className="w-20 h-20 border-4 border-lime-400 border-t-transparent rounded-full animate-spin mb-6"></div>
+          <h2 className="text-3xl font-black text-lime-400 mb-2 animate-pulse">מנתח את הנתונים שלך...</h2>
+          <p className="text-gray-400 text-lg">יצחק עזרן בונה עבורך את פרוטוקול האימון המושלם</p>
+        </div>
+      )}
+
+      {/* HERO SECTION */}
       <header className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?q=80&w=1920')] bg-cover bg-center grayscale"></div>
-        
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-lime-500/10 rounded-full blur-[120px]"></div>
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-lime-500/10 rounded-full blur-[120px]"></div>
 
@@ -62,7 +65,7 @@ export default function YitzhakAzranCoaching() {
         </div>
       </header>
 
-      {/* 2. THE METHOD */}
+      {/* THE METHOD */}
       <section id="method" className="py-24 px-6 max-w-6xl mx-auto border-t border-gray-900">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-black mb-4">הנוסחה שלי לתוצאות שלך</h2>
@@ -71,32 +74,32 @@ export default function YitzhakAzranCoaching() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="bg-gradient-to-b from-gray-950 to-gray-900 p-8 rounded-3xl border border-gray-800 hover:border-lime-400/40 transition duration-500 group">
-            <div className="w-12 h-12 bg-lime-950/50 border border-lime-400 text-lime-400 rounded-2xl flex items-center justify-center font-mono font-bold text-xl mb-6 group-hover:scale-110 transition duration-300">01</div>
+            <div className="w-12 h-12 bg-lime-950/50 border border-lime-400 text-lime-400 rounded-2xl flex items-center justify-center font-mono font-bold text-xl mb-6">01</div>
             <h3 className="text-2xl font-bold mb-3">תוכנית אימון מדעית</h3>
             <p className="text-gray-400 leading-relaxed">תכנון עומסים מדויק, סרטוני הסבר לכל תרגיל ומעקב התקדמות שבועי כדי לוודא שאתה תמיד מתקדם.</p>
           </div>
 
           <div className="bg-gradient-to-b from-gray-950 to-gray-900 p-8 rounded-3xl border border-gray-800 hover:border-lime-400/40 transition duration-500 group">
-            <div className="w-12 h-12 bg-lime-950/50 border border-lime-400 text-lime-400 rounded-2xl flex items-center justify-center font-mono font-bold text-xl mb-6 group-hover:scale-110 transition duration-300">02</div>
+            <div className="w-12 h-12 bg-lime-950/50 border border-lime-400 text-lime-400 rounded-2xl flex items-center justify-center font-mono font-bold text-xl mb-6">02</div>
             <h3 className="text-2xl font-bold mb-3">תזונה שאתה באמת אוהב</h3>
             <p className="text-gray-400 leading-relaxed">אני לא מאמין בהרעבה. נבנה תפריט דינמי שמשתלב בחיים שלך, כולל המאכלים שאתה אוהב, עם דגש על ערכים נכונים.</p>
           </div>
 
           <div className="bg-gradient-to-b from-gray-950 to-gray-900 p-8 rounded-3xl border border-gray-800 hover:border-lime-400/40 transition duration-500 group">
-            <div className="w-12 h-12 bg-lime-950/50 border border-lime-400 text-lime-400 rounded-2xl flex items-center justify-center font-mono font-bold text-xl mb-6 group-hover:scale-110 transition duration-300">03</div>
+            <div className="w-12 h-12 bg-lime-950/50 border border-lime-400 text-lime-400 rounded-2xl flex items-center justify-center font-mono font-bold text-xl mb-6">03</div>
             <h3 className="text-2xl font-bold mb-3">ליווי בוואטסאפ 24/7</h3>
             <p className="text-gray-400 leading-relaxed">אני איתך בכיס. זמינות לשאלות, בדיקת טכניקת ביצוע בסרטונים שאתה שולח לי, וזריקות מוטיבציה ברגעים הקשים.</p>
           </div>
         </div>
       </section>
 
-      {/* 3. INTERACTIVE QUIZ */}
+      {/* INTERACTIVE QUIZ */}
       <section id="quiz" className="bg-gray-950 py-24 px-6 border-y border-gray-900 relative">
         <div className="max-w-xl mx-auto bg-black p-8 md:p-12 rounded-3xl border border-gray-800 shadow-2xl relative z-10">
           <h3 className="text-3xl font-black text-center mb-2">מצא את הדרך שלך</h3>
           <p className="text-center text-gray-400 mb-8">בחר את המטרות שלך וקבל המלצה ראשונית מיצחק</p>
           
-          <form onSubmit={calculatePlan} className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-6">
             <div>
               <label className="block text-sm font-semibold mb-3 text-gray-300">מה המטרה המרכזית שלך?</label>
               <div className="grid grid-cols-3 gap-3">
@@ -118,25 +121,10 @@ export default function YitzhakAzranCoaching() {
               הפק תוכנית מותאמת ⚡
             </button>
           </form>
-
-          {recommendation && (
-            <div className="mt-8 p-6 bg-lime-950/20 border border-lime-400/30 rounded-2xl">
-              <h4 className="text-lime-400 font-extrabold text-lg mb-2">ההמלצה של יצחק עבורך:</h4>
-              <p className="text-gray-200 leading-relaxed mb-4">{recommendation}</p>
-              <a 
-                href="https://wa.me/972559939351?text=היי%20יצחק,%20עשיתי%20את%20השאלון%20באתר%20ואני%20רוצה%20לשמוע%20עוד" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-block w-full text-center bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl transition"
-              >
-                דבר איתי ישירות בוואטסאפ 💬
-              </a>
-            </div>
-          )}
         </div>
       </section>
 
-      {/* 4. FOOTER */}
+      {/* FOOTER */}
       <footer className="py-12 text-center text-gray-600 border-t border-gray-900 text-sm">
         <p className="mb-2 text-gray-500 font-bold">YITZHAK AZRAN - ONLINE COACHING</p>
         <p>© {new Date().getFullYear()} כל הזכויות שמורות ליצחק עזרן.</p>
