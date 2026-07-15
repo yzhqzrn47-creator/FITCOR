@@ -1,91 +1,147 @@
 'use client';
+
 import React, { useState } from 'react';
 
-export default function Contact() {
-  const MY_PHONE_NUMBER = "972559939351"; // <-- כאן אתה מחליף למספר הוואטסאפ האמיתי שלך!
+export default function YitzhakAzranCoaching() {
+  const [goal, setGoal] = useState<'build' | 'shred' | 'tone'>('build');
+  const [level, setLevel] = useState<'beginner' | 'advanced'>('beginner');
+  const [recommendation, setRecommendation] = useState('');
 
-  const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
-  const [messageText, setMessageText] = useState('');
-
-  const handleSubmit = (e: React.FormEvent) => {
+  const calculatePlan = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!name || !phone) {
-      alert('נא למלא שם ומספר טלפון');
-      return;
+    let text = '';
+    if (goal === 'build' && level === 'beginner') {
+      text = 'תוכנית Hypertrophy-X: 3 אימוני כוח בשבוע + ליווי תזונתי לעלייה נקייה.';
+    } else if (goal === 'build' && level === 'advanced') {
+      text = 'תוכנית Iron-Elite: 5 ימי פיצול (Push/Pull/Legs) אגרסיביים אונליין.';
+    } else if (goal === 'shred') {
+      text = 'תוכנית Shred-Protocol: שילוב כוח וגרעון קלורי מבוקר עם מעקב יומי בוואטסאפ.';
+    } else {
+      text = 'תוכנית Hybrid-Fit: שיפור סיבולת, כוח פונקציונלי וגמישות מהבית או מהסטודיו.';
     }
-
-    const message = `היי! הגעתי דרך דף יצירת הקשר באתר FITCORE.\n\nפרטים:\nשם מלא: ${name}\nטלפון: ${phone}\nהודעה: ${messageText || 'לא הוזנה הודעה'}`;
-    const whatsappUrl = `https://wa.me/${MY_PHONE_NUMBER}?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
+    setRecommendation(text);
   };
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-white font-sans flex flex-col justify-between" dir="rtl">
+    <div className="min-h-screen bg-black text-white font-sans selection:bg-lime-400 selection:text-black">
       
-      {/* Header */}
-      <header className="border-b border-zinc-900 px-6 py-4 max-w-7xl mx-auto w-full flex justify-between items-center">
-        <a href="/" className="text-2xl font-black tracking-wider text-lime-400">FITCORE</a>
-        <a href="/" className="text-sm font-medium text-zinc-400 hover:text-white transition">
-          ← חזרה לדף הבית
-        </a>
+      {/* 1. HERO SECTION */}
+      <header className="relative h-screen flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?q=80&w=1920')] bg-cover bg-center grayscale"></div>
+        
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-lime-500/10 rounded-full blur-[120px]"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-lime-500/10 rounded-full blur-[120px]"></div>
+
+        <div className="relative z-10 text-center px-6 max-w-4xl">
+          <span className="text-lime-400 font-mono tracking-widest text-sm uppercase border border-lime-400/30 px-3 py-1 rounded-full bg-lime-950/20">
+            PERSONAL ONLINE COACHING
+          </span>
+          <h1 className="text-6xl md:text-8xl font-black tracking-tighter mt-6 mb-4">
+            יצחק עזרן <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-lime-400 to-emerald-400">
+              מאמן הכושר האישי שלך.
+            </span>
+          </h1>
+          <p className="text-lg md:text-2xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+            לא עוד תוכניות גנריות מהאינטרנט. ליווי אונליין מותאם אישית למבנה הגוף, לסדר היום וליעדים שלך. הכל מנוהל אצלך בטלפון.
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <a 
+              href="#quiz" 
+              className="bg-lime-400 hover:bg-lime-500 text-black font-extrabold py-4 px-10 rounded-xl text-lg transition duration-300 transform hover:-translate-y-1 shadow-[0_0_20px_rgba(163,230,53,0.3)]"
+            >
+              התאם לי תוכנית אישית
+            </a>
+            <a 
+              href="#method" 
+              className="border border-gray-700 hover:border-lime-400 text-white font-bold py-4 px-10 rounded-xl text-lg transition duration-300"
+            >
+              איך השיטה עובדת?
+            </a>
+          </div>
+        </div>
       </header>
 
-      {/* Main Form Section */}
-      <main className="px-6 py-12 max-w-lg mx-auto w-full flex-grow flex flex-col justify-center">
-        <div className="text-center mb-8">
-          <h1 className="text-4xl font-black mb-3 text-lime-400">דברו איתי 📞</h1>
-          <p className="text-zinc-400 text-sm">
-            יש לכם שאלות לפני שמתחילים? רוצים לתאם שיחה? מלאו את הפרטים וההודעה תשלח אליי ישירות לוואטסאפ!
-          </p>
+      {/* 2. THE METHOD */}
+      <section id="method" className="py-24 px-6 max-w-6xl mx-auto border-t border-gray-900">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-black mb-4">הנוסחה שלי לתוצאות שלך</h2>
+          <p className="text-gray-400 text-lg">בלי פשרות, בלי תירוצים. רק מדע ותמיכה מסביב לשעון.</p>
         </div>
 
-        <form onSubmit={handleSubmit} className="bg-zinc-900 p-8 rounded-3xl border border-zinc-800 text-right shadow-2xl">
-          <div className="mb-4">
-            <label className="block text-zinc-400 text-xs uppercase mb-2 font-bold">שם מלא</label>
-            <input 
-              type="text" 
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              className="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-lime-400 transition" 
-              placeholder="ישראל ישראלי" 
-              required
-            />
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="bg-gradient-to-b from-gray-950 to-gray-900 p-8 rounded-3xl border border-gray-800 hover:border-lime-400/40 transition duration-500 group">
+            <div className="w-12 h-12 bg-lime-950/50 border border-lime-400 text-lime-400 rounded-2xl flex items-center justify-center font-mono font-bold text-xl mb-6 group-hover:scale-110 transition duration-300">01</div>
+            <h3 className="text-2xl font-bold mb-3">תוכנית אימון מדעית</h3>
+            <p className="text-gray-400 leading-relaxed">תכנון עומסים מדויק, סרטוני הסבר לכל תרגיל ומעקב התקדמות שבועי כדי לוודא שאתה תמיד מתקדם.</p>
           </div>
 
-          <div className="mb-4">
-            <label className="block text-zinc-400 text-xs uppercase mb-2 font-bold">מספר טלפון</label>
-            <input 
-              type="tel" 
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
-              className="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-lime-400 transition" 
-              placeholder="050-0000000" 
-              required
-            />
+          <div className="bg-gradient-to-b from-gray-950 to-gray-900 p-8 rounded-3xl border border-gray-800 hover:border-lime-400/40 transition duration-500 group">
+            <div className="w-12 h-12 bg-lime-950/50 border border-lime-400 text-lime-400 rounded-2xl flex items-center justify-center font-mono font-bold text-xl mb-6 group-hover:scale-110 transition duration-300">02</div>
+            <h3 className="text-2xl font-bold mb-3">תזונה שאתה באמת אוהב</h3>
+            <p className="text-gray-400 leading-relaxed">אני לא מאמין בהרעבה. נבנה תפריט דינמי שמשתלב בחיים שלך, כולל המאכלים שאתה אוהב, עם דגש על ערכים נכונים.</p>
           </div>
 
-          <div className="mb-6">
-            <label className="block text-zinc-400 text-xs uppercase mb-2 font-bold">איך אוכל לעזור לך? (אופציונלי)</label>
-            <textarea 
-              value={messageText}
-              onChange={(e) => setMessageText(e.target.value)}
-              rows={3}
-              className="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-lime-400 transition resize-none" 
-              placeholder="כאן אפשר לכתוב לי משהו בקצרה..."
-            />
+          <div className="bg-gradient-to-b from-gray-950 to-gray-900 p-8 rounded-3xl border border-gray-800 hover:border-lime-400/40 transition duration-500 group">
+            <div className="w-12 h-12 bg-lime-950/50 border border-lime-400 text-lime-400 rounded-2xl flex items-center justify-center font-mono font-bold text-xl mb-6 group-hover:scale-110 transition duration-300">03</div>
+            <h3 className="text-2xl font-bold mb-3">ליווי בוואטסאפ 24/7</h3>
+            <p className="text-gray-400 leading-relaxed">אני איתך בכיס. זמינות לשאלות, בדיקת טכניקת ביצוע בסרטונים שאתה שולח לי, וזריקות מוטיבציה ברגעים הקשים.</p>
           </div>
+        </div>
+      </section>
 
-          <button type="submit" className="w-full bg-lime-400 text-black py-4 rounded-xl font-black text-lg hover:bg-lime-300 transition-all">
-            שלח הודעה לוואטסאפ שלי
-          </button>
-        </form>
-      </main>
+      {/* 3. INTERACTIVE QUIZ */}
+      <section id="quiz" className="bg-gray-950 py-24 px-6 border-y border-gray-900 relative">
+        <div className="max-w-xl mx-auto bg-black p-8 md:p-12 rounded-3xl border border-gray-800 shadow-2xl relative z-10">
+          <h3 className="text-3xl font-black text-center mb-2">מצא את הדרך שלך</h3>
+          <p className="text-center text-gray-400 mb-8">בחר את המטרות שלך וקבל המלצה ראשונית מיצחק</p>
+          
+          <form onSubmit={calculatePlan} className="space-y-6">
+            <div>
+              <label className="block text-sm font-semibold mb-3 text-gray-300">מה המטרה המרכזית שלך?</label>
+              <div className="grid grid-cols-3 gap-3">
+                <button type="button" onClick={() => setGoal('build')} className={`py-3 px-2 text-xs md:text-sm font-bold rounded-xl border transition ${goal === 'build' ? 'border-lime-400 bg-lime-950/30 text-lime-400' : 'border-gray-800 bg-gray-950 text-gray-400'}`}>עלייה במסה 💪</button>
+                <button type="button" onClick={() => setGoal('shred')} className={`py-3 px-2 text-xs md:text-sm font-bold rounded-xl border transition ${goal === 'shred' ? 'border-lime-400 bg-lime-950/30 text-lime-400' : 'border-gray-800 bg-gray-950 text-gray-400'}`}>חיטוב אגרסיבי 🔥</button>
+                <button type="button" onClick={() => setGoal('tone')} className={`py-3 px-2 text-xs md:text-sm font-bold rounded-xl border transition ${goal === 'tone' ? 'border-lime-400 bg-lime-950/30 text-lime-400' : 'border-gray-800 bg-gray-950 text-gray-400'}`}>כושר ואורח חיים 🌱</button>
+              </div>
+            </div>
 
-      {/* Footer */}
-      <footer className="border-t border-zinc-900 py-6 text-center text-zinc-600 text-xs">
-        © {new Date().getFullYear()} FITCORE. כל הזכויות שמורות.
+            <div>
+              <label className="block text-sm font-semibold mb-3 text-gray-300">רמת הניסיון שלך בחדר כושר?</label>
+              <div className="grid grid-cols-2 gap-3">
+                <button type="button" onClick={() => setLevel('beginner')} className={`py-3 px-4 font-bold rounded-xl border transition ${level === 'beginner' ? 'border-lime-400 bg-lime-950/30 text-lime-400' : 'border-gray-800 bg-gray-950 text-gray-400'}`}>מתחיל / פחות משנה</button>
+                <button type="button" onClick={() => setLevel('advanced')} className={`py-3 px-4 font-bold rounded-xl border transition ${level === 'advanced' ? 'border-lime-400 bg-lime-950/30 text-lime-400' : 'border-gray-800 bg-gray-950 text-gray-400'}`}>מתקדם / מעל שנה</button>
+              </div>
+            </div>
+
+            <button type="submit" className="w-full bg-lime-400 hover:bg-lime-500 text-black font-extrabold py-4 px-4 rounded-xl transition duration-300 shadow-[0_0_15px_rgba(163,230,53,0.2)]">
+              הפק תוכנית מותאמת ⚡
+            </button>
+          </form>
+
+          {recommendation && (
+            <div className="mt-8 p-6 bg-lime-950/20 border border-lime-400/30 rounded-2xl">
+              <h4 className="text-lime-400 font-extrabold text-lg mb-2">ההמלצה של יצחק עבורך:</h4>
+              <p className="text-gray-200 leading-relaxed mb-4">{recommendation}</p>
+              <a 
+                href="https://wa.me/972559939351?text=היי%20יצחק,%20עשיתי%20את%20השאלון%20באתר%20ואני%20רוצה%20לשמוע%20עוד" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-block w-full text-center bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl transition"
+              >
+                דבר איתי ישירות בוואטסאפ 💬
+              </a>
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* 4. FOOTER */}
+      <footer className="py-12 text-center text-gray-600 border-t border-gray-900 text-sm">
+        <p className="mb-2 text-gray-500 font-bold">YITZHAK AZRAN - ONLINE COACHING</p>
+        <p>© {new Date().getFullYear()} כל הזכויות שמורות ליצחק עזרן.</p>
       </footer>
+
     </div>
   );
 }
