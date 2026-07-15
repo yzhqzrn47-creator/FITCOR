@@ -1,65 +1,91 @@
-import Image from "next/image";
+'use client';
+import React, { useState } from 'react';
 
-export default function Home() {
+export default function Contact() {
+  const MY_PHONE_NUMBER = "972559939351"; // <-- כאן אתה מחליף למספר הוואטסאפ האמיתי שלך!
+
+  const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [messageText, setMessageText] = useState('');
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!name || !phone) {
+      alert('נא למלא שם ומספר טלפון');
+      return;
+    }
+
+    const message = `היי! הגעתי דרך דף יצירת הקשר באתר FITCORE.\n\nפרטים:\nשם מלא: ${name}\nטלפון: ${phone}\nהודעה: ${messageText || 'לא הוזנה הודעה'}`;
+    const whatsappUrl = `https://wa.me/${MY_PHONE_NUMBER}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  };
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <div className="min-h-screen bg-zinc-950 text-white font-sans flex flex-col justify-between" dir="rtl">
+      
+      {/* Header */}
+      <header className="border-b border-zinc-900 px-6 py-4 max-w-7xl mx-auto w-full flex justify-between items-center">
+        <a href="/" className="text-2xl font-black tracking-wider text-lime-400">FITCORE</a>
+        <a href="/" className="text-sm font-medium text-zinc-400 hover:text-white transition">
+          ← חזרה לדף הבית
+        </a>
+      </header>
+
+      {/* Main Form Section */}
+      <main className="px-6 py-12 max-w-lg mx-auto w-full flex-grow flex flex-col justify-center">
+        <div className="text-center mb-8">
+          <h1 className="text-4xl font-black mb-3 text-lime-400">דברו איתי 📞</h1>
+          <p className="text-zinc-400 text-sm">
+            יש לכם שאלות לפני שמתחילים? רוצים לתאם שיחה? מלאו את הפרטים וההודעה תשלח אליי ישירות לוואטסאפ!
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+
+        <form onSubmit={handleSubmit} className="bg-zinc-900 p-8 rounded-3xl border border-zinc-800 text-right shadow-2xl">
+          <div className="mb-4">
+            <label className="block text-zinc-400 text-xs uppercase mb-2 font-bold">שם מלא</label>
+            <input 
+              type="text" 
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-lime-400 transition" 
+              placeholder="ישראל ישראלי" 
+              required
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+          </div>
+
+          <div className="mb-4">
+            <label className="block text-zinc-400 text-xs uppercase mb-2 font-bold">מספר טלפון</label>
+            <input 
+              type="tel" 
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+              className="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-lime-400 transition" 
+              placeholder="050-0000000" 
+              required
+            />
+          </div>
+
+          <div className="mb-6">
+            <label className="block text-zinc-400 text-xs uppercase mb-2 font-bold">איך אוכל לעזור לך? (אופציונלי)</label>
+            <textarea 
+              value={messageText}
+              onChange={(e) => setMessageText(e.target.value)}
+              rows={3}
+              className="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-lime-400 transition resize-none" 
+              placeholder="כאן אפשר לכתוב לי משהו בקצרה..."
+            />
+          </div>
+
+          <button type="submit" className="w-full bg-lime-400 text-black py-4 rounded-xl font-black text-lg hover:bg-lime-300 transition-all">
+            שלח הודעה לוואטסאפ שלי
+          </button>
+        </form>
       </main>
+
+      {/* Footer */}
+      <footer className="border-t border-zinc-900 py-6 text-center text-zinc-600 text-xs">
+        © {new Date().getFullYear()} FITCORE. כל הזכויות שמורות.
+      </footer>
     </div>
   );
 }
