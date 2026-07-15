@@ -1,0 +1,134 @@
+'use client';
+
+import React, { Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
+
+function ResultContent() {
+  const searchParams = useSearchParams();
+  const goal = searchParams.get('goal') || 'build';
+  const level = searchParams.get('level') || 'beginner';
+
+  // הגדרת תכנים מותאמים אישית ברמה הגבוהה ביותר בהתאם לבחירה של המשתמש
+  const getCustomPlanDetails = () => {
+    if (goal === 'build') {
+      return {
+        title: "פרוטוקול היפרטרופיה אגרסיבי (בניית מסה)",
+        subTitle: level === 'beginner' ? "שלב 1: בניית בסיס כוח ורגישות שריר" : "שלב פרו: העמסת נפח מתקדמת (PPL)",
+        workouts: level === 'beginner' ? "3 אימוני כוח מלאים בשבוע (Full Body) ממוקדי תרגילי בסיס." : "5 אימונים בשבוע בחלוקת Push/Pull/Legs עם עומס יתר פרוגרסיבי.",
+        nutrition: "גרעון קלורי חיובי קל (250+ קלוריות מעל הנטרלי), מינימום 2 גרם חלבון לכל קילו משקל גוף.",
+        tip: "באימון אונליין איתי נתמקד בטכניקת ביצוע מושלמת בסרטונים שתשלח לי כדי למנוע פציעות ולמקסם גדילה."
+      };
+    } else if (goal === 'shred') {
+      return {
+        title: "פרוטוקול חיטוב מקסימלי (Shred Protocol)",
+        subTitle: "שרפת שומן ושמירה מקסימלית על מסת השריר",
+        workouts: "4 אימוני כוח שבועיים בשילוב פרוטוקול אירובי יומי מותאם אישית לדופק המטרה שלך.",
+        nutrition: "גרעון קלורי מבוקר ומדויק, תפריט עשיר בחלבון וסיבים למניעת רעב, והתאמה שבועית של פחמימות.",
+        tip: "אין הרעבה אצלי. נכניס לתפריט שוקולד או המבורגר פעם בשבוע בצורה מחושבת כדי שנתמיד לאורך זמן!"
+      };
+    } else {
+      return {
+        title: "פרוטוקול Hybrid-Fit (כושר ואורח חיים בריא)",
+        subTitle: "שיפור מדדי בריאות, כוח פונקציונלי ואנרגיה יומיומית",
+        workouts: "3 אימונים משולבים (כוח פונקציונלי + סיבולת) שניתן לבצע מהבית, מהפארק או מהסטודיו.",
+        nutrition: "איזון קלורי נטרלי, דגש על מזון מלא, הפחתת דלקתיות ושיפור רמות האנרגיה לאורך היום.",
+        tip: "נבנה הרגלים מנצחים של שתיית מים, שינה נכונה ופעילות יומיומית קבועה בלי לשבש לך את השגרה."
+      };
+    }
+  };
+
+  const plan = getCustomPlanDetails();
+  const whatsappNumber = "972559939351";
+  const whatsappMessage = encodeURIComponent(
+    `היי יצחק, עשיתי את השאלון באתר וקיבלתי את התוכנית "${plan.title}" (${level === 'beginner' ? 'מתחיל' : 'מתקדם'}). אני רוצה להתחיל ליווי איתך ולשמוע פרטים!`
+  );
+
+  return (
+    <div className="min-h-screen bg-black text-white font-sans selection:bg-lime-400 selection:text-black py-16 px-6">
+      
+      {/* עיצובי רקע מטורפים */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-96 bg-gradient-to-b from-lime-500/10 to-transparent rounded-full blur-[150px] -z-10"></div>
+
+      <div className="max-w-3xl mx-auto">
+        
+        {/* כפתור חזרה מהיר */}
+        <a href="/" className="inline-flex items-center text-sm text-gray-500 hover:text-lime-400 mb-8 transition">
+          ← חזרה לדף הבית
+        </a>
+
+        {/* כותרת הדף האישי */}
+        <div className="text-center md:text-right mb-12">
+          <span className="text-lime-400 font-mono tracking-widest text-xs uppercase border border-lime-400/30 px-3 py-1 rounded-full bg-lime-950/20">
+            YOUR PERSONAL REPORT IS READY
+          </span>
+          <h1 className="text-4xl md:text-6xl font-black tracking-tight mt-4 mb-2">
+            התוכנית המותאמת שלך
+          </h1>
+          <p className="text-gray-400 text-lg">נבנה במיוחד על פי הנתונים שהזנת על ידי יצחק עזרן</p>
+        </div>
+
+        {/* כרטיס התוכנית הראשי */}
+        <div className="bg-gradient-to-b from-gray-950 to-gray-900 border border-lime-400/20 rounded-3xl p-8 md:p-12 mb-8 shadow-2xl relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-24 h-24 bg-lime-400/5 rounded-full blur-2xl"></div>
+          
+          <h2 className="text-3xl font-black text-lime-400 mb-1">{plan.title}</h2>
+          <p className="text-gray-400 font-semibold mb-8 text-sm md:text-base border-b border-gray-800 pb-4">{plan.subTitle}</p>
+
+          {/* פרק 1: אימונים */}
+          <div className="mb-8">
+            <div className="flex items-center gap-2 mb-3">
+              <span className="text-2xl">🏋️‍♂️</span>
+              <h3 className="text-xl font-bold">מערך האימונים המוצע:</h3>
+            </div>
+            <p className="text-gray-300 leading-relaxed pr-8">{plan.workouts}</p>
+          </div>
+
+          {/* פרק 2: תזונה */}
+          <div className="mb-8">
+            <div className="flex items-center gap-2 mb-3">
+              <span className="text-2xl">🥗</span>
+              <h3 className="text-xl font-bold">אסטרטגיה תזונתית:</h3>
+            </div>
+            <p className="text-gray-300 leading-relaxed pr-8">{plan.nutrition}</p>
+          </div>
+
+          {/* פרק 3: טיפ זהב */}
+          <div className="p-4 bg-lime-950/20 border border-lime-400/10 rounded-2xl">
+            <p className="text-sm text-lime-300 leading-relaxed">
+              <strong>💡 טיפ של יצחק:</strong> {plan.tip}
+            </p>
+          </div>
+        </div>
+
+        {/* ההנעה לפעולה הכי חזקה שיש */}
+        <div className="bg-gray-950 border border-gray-800 p-8 rounded-3xl text-center">
+          <h3 className="text-2xl font-extrabold mb-4">מוכן להפוך את התוכנית הזו לתוצאות אמיתיות במראה?</h3>
+          <p className="text-gray-400 mb-8 max-w-lg mx-auto">
+            כדי שהתוכנית הזו באמת תעבוד, אתה צריך דיוק, מעקב שבועי והתאמה אישית של 100%. בוא נעשה את זה ביחד בליווי אונליין האישי שלי.
+          </p>
+          <a 
+            href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-block bg-lime-400 hover:bg-lime-500 text-black font-black py-4 px-12 rounded-2xl text-xl transition duration-300 shadow-[0_0_25px_rgba(163,230,53,0.3)] transform hover:scale-[1.02]"
+          >
+            להתחלת ליווי איתי בוואטסאפ ⚡
+          </a>
+        </div>
+
+      </div>
+    </div>
+  );
+}
+
+export default function ResultPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-black text-white flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-lime-400"></div>
+      </div>
+    }>
+      <ResultContent />
+    </Suspense>
+  );
+}
