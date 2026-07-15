@@ -1,20 +1,18 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 
-export default function ResultPage() {
+function ResultContent() {
   const searchParams = useSearchParams();
   const goal = searchParams.get('goal');
   const level = searchParams.get('level');
   const [recommendation, setRecommendation] = useState('');
   const [programName, setProgramName] = useState('');
 
-  // מספר הטלפון המעודכן שלך בוואטסאפ
   const myPhoneNumber = '972559939351'; 
 
   useEffect(() => {
-    // התאמת שם הפרוטוקול וההסבר הכללי לפי בחירת המשתמש
     if (goal === 'build' && level === 'beginner') {
       setProgramName('Hypertrophy-X');
       setRecommendation('פרוטוקול כוח והיפרטרופיה מותאם למתחילים: דגש על למידת טכניקה, בניית בסיס חזק ועלייה נקייה במסת השריר.');
@@ -33,7 +31,6 @@ export default function ResultPage() {
     }
   }, [goal, level]);
 
-  // תרגום הערכים לעברית קריאה בשביל הודעת הוואטסאפ
   const getGoalHebrew = (g: string | null) => {
     if (g === 'build') return 'עלייה במסה';
     if (g === 'shred') return 'חיטוב אגרסיבי';
@@ -44,7 +41,6 @@ export default function ResultPage() {
     return l === 'advanced' ? 'מתקדם (מעל שנה)' : 'מתחיל (פחות משנה)';
   };
 
-  // יצירת קישור וואטסאפ עם הודעה מובנית אישית
   const goalHeb = getGoalHebrew(goal);
   const levelHeb = getLevelHebrew(level);
   const whatsappMessage = `היי יצחק, עשיתי את השאלון באתר! יצא שאני מתאים לתוכנית: *${programName}*. \n\nהפרטים שלי:\n- מטרה: ${goalHeb}\n- רמת ניסיון: ${levelHeb}\n\nאשמח לקבל את פרטי התוכנית המלאה ולהתחיל לשתף פעולה! 🚀`;
@@ -53,8 +49,6 @@ export default function ResultPage() {
   return (
     <div className="min-h-screen bg-black text-white p-6 flex flex-col items-center justify-center font-sans selection:bg-lime-400 selection:text-black">
       <div className="max-w-2xl w-full bg-gray-950 p-8 md:p-12 rounded-3xl border border-gray-900 text-center shadow-2xl relative overflow-hidden">
-        
-        {/* אלמנטים עיצוביים ברקע */}
         <div className="absolute -top-10 -left-10 w-40 h-40 bg-lime-500/10 rounded-full blur-3xl"></div>
         <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-lime-500/10 rounded-full blur-3xl"></div>
 
@@ -84,7 +78,6 @@ export default function ResultPage() {
           <p className="text-gray-300 leading-relaxed text-lg">{recommendation}</p>
         </div>
 
-        {/* כפתור הוואטסאפ הגדול והרוטט למשיכת הליד */}
         <div className="space-y-4">
           <a 
             href={whatsappUrl}
@@ -104,5 +97,13 @@ export default function ResultPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function ResultPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-black text-white flex items-center justify-center">טוען נתונים...</div>}>
+      <ResultContent />
+    </Suspense>
   );
 }
