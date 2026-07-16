@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 const advantages = [
   {
     icon: '💪',
-    title: 'תוכנית אימונים מותאמת אישית',
+    title: 'תוכנית אימונים אישית ומדויקת',
     description: 'נבנית מאפס במיוחד עבור הגוף, המטרות, הפציעות ואורח החיים שלך.',
   },
   {
@@ -134,6 +134,14 @@ export default function Home() {
       lineHeight: '1.5',
     }}>
       
+      {/* סגנונות גלובליים מוזרקים בצורה בטוחה לטובת האנימציה של ה-Spinner */}
+      <style dangerouslySetInnerHTML={{__html: `
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+      `}} />
+
       {/* ==========================================
           HERO SECTION (מסך פתיחה יוקרתי)
          ========================================== */}
@@ -148,41 +156,47 @@ export default function Home() {
         padding: '120px 24px 80px 24px',
         boxSizing: 'border-box',
       }}>
-        {/* אפקט הילת זהב מאחורי התוכן */}
+        {/* אפקט הילת זהב עמוק מאחורי התוכן */}
         <div style={{
           position: 'absolute',
-          top: '20%',
+          top: '25%',
           left: '50%',
           transform: 'translateX(-50%)',
-          width: '600px',
-          height: '600px',
+          width: 'min(600px, 100vw)',
+          height: 'min(600px, 100vw)',
           borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(245, 158, 11, 0.08) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 70%)',
           pointerEvents: 'none',
           zIndex: 0,
         }}></div>
         
         <div style={{ position: 'relative', maxWidth: '800px', width: '100%', zIndex: 1 }}>
-          <div style={{ marginBottom: '24px' }}>
+          <div style={{ marginBottom: '28px' }}>
             <span style={{
-              fontSize: '13px',
+              fontSize: '12px',
               fontWeight: '900',
-              letterSpacing: '0.3em',
-              color: '#f59e0b',
-              backgroundColor: 'rgba(245, 158, 11, 0.1)',
-              padding: '10px 24px',
+              letterSpacing: '0.25em',
+              color: '#D4AF37',
+              backgroundColor: 'rgba(212, 175, 55, 0.07)',
+              padding: '10px 28px',
               borderRadius: '9999px',
-              border: '1px solid rgba(245, 158, 11, 0.2)',
+              border: '1px solid rgba(212, 175, 55, 0.25)',
               display: 'inline-block',
+              boxShadow: '0 0 20px rgba(212, 175, 55, 0.05)',
             }}>
               YITZHAK AZRAN
             </span>
           </div>
 
-          <h1 style={{ margin: '0 0 24px 0', fontSize: '3.5rem', fontWeight: '900', letterSpacing: '-1px' }}>
+          <h1 style={{ 
+            margin: '0 0 24px 0', 
+            fontSize: 'clamp(2.2rem, 7.5vw, 3.5rem)', /* פונקציית קלאמפ המונעת מהטקסט לגלוש בניידים */
+            fontWeight: '900', 
+            letterSpacing: '-1px' 
+          }}>
             <span style={{
               display: 'block',
-              background: 'linear-gradient(135deg, #fbbf24 0%, #d97706 100%)',
+              background: 'linear-gradient(135deg, #FFE89C 0%, #D4AF37 50%, #AA7C11 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               marginBottom: '8px',
@@ -191,8 +205,8 @@ export default function Home() {
             </span>
             <span style={{
               display: 'block',
-              fontSize: '1.5rem',
-              color: '#ffffff',
+              fontSize: 'clamp(1rem, 4vw, 1.4rem)',
+              color: '#e4e4e7',
               letterSpacing: '0.15em',
               fontWeight: '800',
               textTransform: 'uppercase',
@@ -204,24 +218,24 @@ export default function Home() {
           <p style={{
             maxWidth: '600px',
             margin: '0 auto 48px auto',
-            color: '#a3a3a3',
-            fontSize: '1.2rem',
-            lineHeight: '1.7',
+            color: '#a1a1aa',
+            fontSize: 'clamp(1rem, 3.5vw, 1.2rem)',
+            lineHeight: '1.75',
           }}>
-            הליווי האישי שיעזור לך לבנות גוף חזק, חטוב ובריא באמצעות תוכנית מותאמת אישית, הכוונה תזונתית גמישה וליווי מקצועי צמוד אונליין.
+            הליווי האישי שיעזור לך לבנות גוף חזק, חטוב ובריא באמצעות תוכנית אימונים מותאמת אישית, הכוונה תזונתית גמישה וליווי מקצועי צמוד אונליין.
           </p>
 
-          {/* תמונת פרופיל אישית */}
+          {/* תמונת פרופיל אישית בעיצוב יוקרתי */}
           <div style={{
             position: 'relative',
-            width: '240px',
-            height: '240px',
+            width: 'min(230px, 55vw)',
+            height: 'min(230px, 55vw)',
             borderRadius: '50%',
             overflow: 'hidden',
             margin: '0 auto 48px auto',
-            border: '4px solid rgba(245, 158, 11, 0.2)',
-            boxShadow: '0 0 40px rgba(245, 158, 11, 0.15)',
-            backgroundColor: '#171719',
+            border: '2px solid rgba(212, 175, 55, 0.4)',
+            boxShadow: '0 0 50px rgba(212, 175, 55, 0.2)',
+            backgroundColor: '#0B0B0C',
           }}>
             <img 
               src="/yitzhak.jpg" 
@@ -240,7 +254,7 @@ export default function Home() {
           <button 
             onClick={handleScrollToSurvey}
             style={{
-              backgroundColor: '#f59e0b',
+              backgroundColor: '#D4AF37',
               color: '#070708',
               border: 'none',
               padding: '18px 48px',
@@ -249,8 +263,10 @@ export default function Home() {
               fontWeight: '900',
               cursor: 'pointer',
               transition: 'transform 0.2s, box-shadow 0.2s',
-              boxShadow: '0 8px 30px rgba(245, 158, 11, 0.3)',
+              boxShadow: '0 8px 30px rgba(212, 175, 55, 0.35)',
             }}
+            onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.03)'}
+            onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
           >
             אני רוצה להתחיל ←
           </button>
@@ -258,18 +274,18 @@ export default function Home() {
       </section>
 
       {/* ==========================================
-          WHY ME (כרטיסיות יתרונות)
+          WHY ME (יתרונות - עם אפקט זכוכית אמיתי)
          ========================================== */}
       <section style={{
         padding: '100px 24px',
-        borderTop: '1px solid rgba(255, 255, 255, 0.05)',
+        borderTop: '1px solid rgba(212, 175, 55, 0.1)',
         backgroundColor: '#070708',
       }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '64px' }}>
-            <span style={{ fontSize: '12px', fontWeight: 'bold', color: '#f59e0b', letterSpacing: '0.2em', display: 'block', marginBottom: '8px' }}>THE ADVANTAGE</span>
+            <span style={{ fontSize: '12px', fontWeight: 'bold', color: '#D4AF37', letterSpacing: '0.2em', display: 'block', marginBottom: '8px' }}>THE ADVANTAGE</span>
             <h2 style={{ fontSize: '2.5rem', fontWeight: '900', margin: 0 }}>
-              למה דווקא <span style={{ color: '#f59e0b' }}>ME</span>?
+              למה דווקא <span style={{ color: '#D4AF37' }}>אני?</span>
             </h2>
           </div>
 
@@ -282,19 +298,22 @@ export default function Home() {
               <div 
                 key={index}
                 style={{
-                  backgroundColor: 'rgba(255, 255, 255, 0.02)',
+                  backgroundColor: 'rgba(255, 255, 255, 0.03)',
+                  backdropFilter: 'blur(12px)',
+                  WebkitBackdropFilter: 'blur(12px)',
                   borderRadius: '24px',
                   padding: '32px',
-                  border: '1px solid rgba(255, 255, 255, 0.05)',
+                  border: '1px solid rgba(212, 175, 55, 0.15)',
+                  boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.37)',
                   display: 'flex',
                   flexDirection: 'column',
                   alignItems: 'flex-start',
                   gap: '16px',
                 }}
               >
-                <div style={{ fontSize: '40px' }}>{item.icon}</div>
+                <div style={{ fontSize: '36px' }}>{item.icon}</div>
                 <h3 style={{ fontSize: '20px', fontWeight: '800', margin: 0, color: '#ffffff' }}>{item.title}</h3>
-                <p style={{ color: '#a3a3a3', fontSize: '15px', lineHeight: '1.6', margin: 0 }}>{item.description}</p>
+                <p style={{ color: '#a1a1aa', fontSize: '15px', lineHeight: '1.6', margin: 0 }}>{item.description}</p>
               </div>
             ))}
           </div>
@@ -302,18 +321,18 @@ export default function Home() {
       </section>
 
       {/* ==========================================
-          HOW IT WORKS (תהליך העבודה)
+          HOW IT WORKS (תהליך העבודה - אפקט זכוכית עדין)
          ========================================== */}
       <section style={{
         padding: '100px 24px',
-        borderTop: '1px solid rgba(255, 255, 255, 0.05)',
+        borderTop: '1px solid rgba(212, 175, 55, 0.1)',
         backgroundColor: '#050506',
       }}>
         <div style={{ maxWidth: '900px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '64px' }}>
-            <span style={{ fontSize: '12px', fontWeight: 'bold', color: '#f59e0b', letterSpacing: '0.2em', display: 'block', marginBottom: '8px' }}>THE PROCESS</span>
+            <span style={{ fontSize: '12px', fontWeight: 'bold', color: '#D4AF37', letterSpacing: '0.2em', display: 'block', marginBottom: '8px' }}>THE PROCESS</span>
             <h2 style={{ fontSize: '2.5rem', fontWeight: '900', margin: 0 }}>
-              איך זה <span style={{ color: '#f59e0b' }}>WORKS</span>?
+              איך התהליך <span style={{ color: '#D4AF37' }}>עובד?</span>
             </h2>
           </div>
 
@@ -330,21 +349,24 @@ export default function Home() {
                   gap: '24px',
                   padding: '32px',
                   borderRadius: '24px',
-                  border: '1px solid rgba(255, 255, 255, 0.03)',
-                  backgroundColor: 'rgba(10, 10, 12, 0.6)',
+                  border: '1px solid rgba(212, 175, 55, 0.1)',
+                  backgroundColor: 'rgba(255, 255, 255, 0.02)',
+                  backdropFilter: 'blur(8px)',
+                  WebkitBackdropFilter: 'blur(8px)',
+                  boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.25)',
                   alignItems: 'flex-start',
                 }}
               >
                 <div style={{
                   fontSize: '48px',
                   fontWeight: '900',
-                  color: 'rgba(245, 158, 11, 0.2)',
+                  color: 'rgba(212, 175, 55, 0.25)',
                   fontFamily: 'monospace',
                   lineHeight: '1',
                 }}>{step.num}</div>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                   <h3 style={{ fontSize: '20px', fontWeight: '800', margin: 0, color: '#ffffff' }}>{step.title}</h3>
-                  <p style={{ color: '#a3a3a3', fontSize: '15px', lineHeight: '1.6', margin: 0 }}>{step.description}</p>
+                  <p style={{ color: '#a1a1aa', fontSize: '15px', lineHeight: '1.6', margin: 0 }}>{step.description}</p>
                 </div>
               </div>
             ))}
@@ -353,11 +375,11 @@ export default function Home() {
       </section>
 
       {/* ==========================================
-          SMART SURVEY (שאלון ההתאמה האינטראקטיבי)
+          SMART SURVEY (שאלון זכוכית וזהב)
          ========================================== */}
       <section id="survey-section" style={{
         padding: '100px 24px',
-        borderTop: '1px solid rgba(255, 255, 255, 0.05)',
+        borderTop: '1px solid rgba(212, 175, 55, 0.1)',
         backgroundColor: '#070708',
         display: 'flex',
         justifyContent: 'center',
@@ -366,10 +388,12 @@ export default function Home() {
         <div style={{ maxWidth: '600px', width: '100%', margin: '0 auto' }}>
           <div style={{
             backgroundColor: 'rgba(255, 255, 255, 0.02)',
-            border: '1px solid rgba(255, 255, 255, 0.08)',
+            backdropFilter: 'blur(16px)',
+            WebkitBackdropFilter: 'blur(16px)',
+            border: '1px solid rgba(212, 175, 55, 0.25)',
             borderRadius: '32px',
             padding: '40px 24px',
-            boxShadow: '0 20px 50px rgba(0, 0, 0, 0.3)',
+            boxShadow: '0 20px 50px rgba(0, 0, 0, 0.5)',
             boxSizing: 'border-box',
           }}>
             
@@ -378,28 +402,29 @@ export default function Home() {
                 <span style={{
                   fontSize: '11px',
                   fontWeight: 'bold',
-                  color: '#f59e0b',
-                  backgroundColor: 'rgba(245, 158, 11, 0.1)',
+                  color: '#D4AF37',
+                  backgroundColor: 'rgba(212, 175, 55, 0.1)',
                   padding: '6px 16px',
                   borderRadius: '9999px',
                   alignSelf: 'center',
+                  border: '1px solid rgba(212, 175, 55, 0.2)',
                 }}>THE SURVEY</span>
                 <h3 style={{ fontSize: '26px', fontWeight: '900', margin: 0 }}>השאלון להתאמת הליווי האישי</h3>
-                <p style={{ color: '#a3a3a3', fontSize: '15px', lineHeight: '1.6', margin: 0 }}>
+                <p style={{ color: '#a1a1aa', fontSize: '15px', lineHeight: '1.6', margin: 0 }}>
                   השאלון הבא לוקח פחות מדקה. התשובות שלך יעזרו לי להבין בדיוק איזה תפריט ותוכנית אימונים יביאו אותך לתוצאה המהירה והבטוחה ביותר.
                 </p>
                 <button
                   onClick={() => setSurveyStep(1)}
                   style={{
                     padding: '18px',
-                    backgroundColor: '#f59e0b',
+                    backgroundColor: '#D4AF37',
                     color: '#070708',
                     border: 'none',
                     borderRadius: '16px',
                     fontSize: '18px',
                     fontWeight: '900',
                     cursor: 'pointer',
-                    boxShadow: '0 4px 20px rgba(245, 158, 11, 0.25)',
+                    boxShadow: '0 4px 20px rgba(212, 175, 55, 0.25)',
                   }}
                 >
                   בוא נתחיל 🔥
@@ -419,7 +444,7 @@ export default function Home() {
                     padding: '18px',
                     borderRadius: '16px',
                     backgroundColor: '#121214',
-                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                    border: '1px solid rgba(212, 175, 55, 0.2)',
                     color: '#ffffff',
                     fontSize: '16px',
                     outline: 'none',
@@ -430,8 +455,8 @@ export default function Home() {
                   onClick={() => setSurveyStep(2)}
                   style={{
                     padding: '18px',
-                    backgroundColor: name ? '#ffffff' : 'rgba(255, 255, 255, 0.2)',
-                    color: '#070708',
+                    backgroundColor: name ? '#ffffff' : 'rgba(255, 255, 255, 0.1)',
+                    color: name ? '#070708' : '#52525b',
                     border: 'none',
                     borderRadius: '16px',
                     fontSize: '16px',
@@ -456,7 +481,7 @@ export default function Home() {
                     padding: '18px',
                     borderRadius: '16px',
                     backgroundColor: '#121214',
-                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                    border: '1px solid rgba(212, 175, 55, 0.2)',
                     color: '#ffffff',
                     fontSize: '16px',
                     outline: 'none',
@@ -464,7 +489,7 @@ export default function Home() {
                 />
                 <div style={{ display: 'flex', gap: '12px' }}>
                   <button onClick={() => setSurveyStep(1)} style={{ flex: 1, padding: '18px', backgroundColor: 'transparent', border: '1px solid rgba(255, 255, 255, 0.1)', color: '#ffffff', borderRadius: '16px', cursor: 'pointer' }}>חזור</button>
-                  <button disabled={!age} onClick={() => setSurveyStep(3)} style={{ flex: 2, padding: '18px', backgroundColor: age ? '#ffffff' : 'rgba(255, 255, 255, 0.2)', color: '#070708', border: 'none', borderRadius: '16px', fontWeight: 'bold', cursor: age ? 'pointer' : 'not-allowed' }}>המשך</button>
+                  <button disabled={!age} onClick={() => setSurveyStep(3)} style={{ flex: 2, padding: '18px', backgroundColor: age ? '#ffffff' : 'rgba(255, 255, 255, 0.1)', color: age ? '#070708' : '#52525b', border: 'none', borderRadius: '16px', fontWeight: 'bold', cursor: age ? 'pointer' : 'not-allowed' }}>המשך</button>
                 </div>
               </div>
             )}
@@ -483,7 +508,7 @@ export default function Home() {
                       padding: '18px',
                       borderRadius: '16px',
                       backgroundColor: '#121214',
-                      border: '1px solid rgba(255, 255, 255, 0.1)',
+                      border: '1px solid rgba(212, 175, 55, 0.2)',
                       color: '#ffffff',
                       fontSize: '16px',
                       outline: 'none',
@@ -499,7 +524,7 @@ export default function Home() {
                       padding: '18px',
                       borderRadius: '16px',
                       backgroundColor: '#121214',
-                      border: '1px solid rgba(255, 255, 255, 0.1)',
+                      border: '1px solid rgba(212, 175, 55, 0.2)',
                       color: '#ffffff',
                       fontSize: '16px',
                       outline: 'none',
@@ -508,7 +533,7 @@ export default function Home() {
                 </div>
                 <div style={{ display: 'flex', gap: '12px' }}>
                   <button onClick={() => setSurveyStep(2)} style={{ flex: 1, padding: '18px', backgroundColor: 'transparent', border: '1px solid rgba(255, 255, 255, 0.1)', color: '#ffffff', borderRadius: '16px', cursor: 'pointer' }}>חזור</button>
-                  <button disabled={!height || !weight} onClick={() => setSurveyStep(4)} style={{ flex: 2, padding: '18px', backgroundColor: (height && weight) ? '#ffffff' : 'rgba(255, 255, 255, 0.2)', color: '#070708', border: 'none', borderRadius: '16px', fontWeight: 'bold', cursor: (height && weight) ? 'pointer' : 'not-allowed' }}>המשך</button>
+                  <button disabled={!height || !weight} onClick={() => setSurveyStep(4)} style={{ flex: 2, padding: '18px', backgroundColor: (height && weight) ? '#ffffff' : 'rgba(255, 255, 255, 0.1)', color: (height && weight) ? '#070708' : '#52525b', border: 'none', borderRadius: '16px', fontWeight: 'bold', cursor: (height && weight) ? 'pointer' : 'not-allowed' }}>המשך</button>
                 </div>
               </div>
             )}
@@ -525,9 +550,9 @@ export default function Home() {
                       padding: '18px',
                       borderRadius: '16px',
                       textAlign: 'right',
-                      border: goal === option ? '1px solid #f59e0b' : '1px solid rgba(255, 255, 255, 0.1)',
-                      backgroundColor: goal === option ? 'rgba(245, 158, 11, 0.1)' : '#121214',
-                      color: goal === option ? '#f59e0b' : '#ffffff',
+                      border: goal === option ? '1px solid #D4AF37' : '1px solid rgba(255, 255, 255, 0.1)',
+                      backgroundColor: goal === option ? 'rgba(212, 175, 55, 0.15)' : '#121214',
+                      color: goal === option ? '#D4AF37' : '#ffffff',
                       fontSize: '16px',
                       cursor: 'pointer',
                       fontWeight: goal === option ? 'bold' : 'normal',
@@ -552,9 +577,9 @@ export default function Home() {
                       padding: '18px',
                       borderRadius: '16px',
                       textAlign: 'right',
-                      border: location === option ? '1px solid #f59e0b' : '1px solid rgba(255, 255, 255, 0.1)',
-                      backgroundColor: location === option ? 'rgba(245, 158, 11, 0.1)' : '#121214',
-                      color: location === option ? '#f59e0b' : '#ffffff',
+                      border: location === option ? '1px solid #D4AF37' : '1px solid rgba(255, 255, 255, 0.1)',
+                      backgroundColor: location === option ? 'rgba(212, 175, 55, 0.15)' : '#121214',
+                      color: location === option ? '#D4AF37' : '#ffffff',
                       fontSize: '16px',
                       cursor: 'pointer',
                       fontWeight: location === option ? 'bold' : 'normal',
@@ -579,9 +604,9 @@ export default function Home() {
                       padding: '18px',
                       borderRadius: '16px',
                       textAlign: 'right',
-                      border: frequency === option ? '1px solid #f59e0b' : '1px solid rgba(255, 255, 255, 0.1)',
-                      backgroundColor: frequency === option ? 'rgba(245, 158, 11, 0.1)' : '#121214',
-                      color: frequency === option ? '#f59e0b' : '#ffffff',
+                      border: frequency === option ? '1px solid #D4AF37' : '1px solid rgba(255, 255, 255, 0.1)',
+                      backgroundColor: frequency === option ? 'rgba(212, 175, 55, 0.15)' : '#121214',
+                      color: frequency === option ? '#D4AF37' : '#ffffff',
                       fontSize: '16px',
                       cursor: 'pointer',
                       fontWeight: frequency === option ? 'bold' : 'normal',
@@ -599,13 +624,12 @@ export default function Home() {
                 <div style={{
                   width: '60px',
                   height: '60px',
-                  border: '4px solid #f59e0b',
+                  border: '4px solid #D4AF37',
                   borderTopColor: 'transparent',
                   borderRadius: '50%',
                   animation: 'spin 1s linear infinite',
                 }}></div>
-                <h4 style={{ fontSize: '20px', fontWeight: '900', color: '#f59e0b', letterSpacing: '0.1em' }}>ANALYZING DATA...</h4>
-                <style>{`@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }`}</style>
+                <h4 style={{ fontSize: '18px', fontWeight: '900', color: '#D4AF37', letterSpacing: '0.1em' }}>מנתח נתונים אישיים...</h4>
               </div>
             )}
 
@@ -614,7 +638,7 @@ export default function Home() {
                 <div style={{ fontSize: '64px' }}>🎉</div>
                 <h4 style={{ fontSize: '26px', fontWeight: '900', margin: 0 }}>הנתונים נותחו בהצלחה!</h4>
                 <p style={{ color: '#d4d4d8', fontSize: '16px', lineHeight: '1.6', margin: 0 }}>
-                  היי <span style={{ color: '#f59e0b', fontWeight: 'bold' }}>{name}</span>, הכנתי עבורך ניתוח ראשוני של הנתונים. לחץ על הכפתור למטה כדי לשלוח לי אותם ישירות לוואטסאפ ונתחיל לעבוד על הגוף החדש שלך!
+                  היי <span style={{ color: '#D4AF37', fontWeight: 'bold' }}>{name}</span>, הכנתי עבורך ניתוח ראשוני של הנתונים. לחץ על הכפתור למטה כדי לשלוח לי אותם ישירות לוואטסאפ ונתחיל לעבוד על הגוף החדש שלך!
                 </p>
                 <button
                   onClick={handleWhatsAppSend}
@@ -645,18 +669,18 @@ export default function Home() {
       </section>
 
       {/* ==========================================
-          FAQ (שאלות נפוצות)
+          FAQ (שאלות נפוצות - כפתורי זכוכית שקופים)
          ========================================== */}
       <section id="faq" style={{
         padding: '100px 24px',
-        borderTop: '1px solid rgba(255, 255, 255, 0.05)',
+        borderTop: '1px solid rgba(212, 175, 55, 0.1)',
         backgroundColor: '#070708',
       }}>
         <div style={{ maxWidth: '800px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '64px' }}>
-            <span style={{ fontSize: '12px', fontWeight: 'bold', color: '#f59e0b', letterSpacing: '0.2em', display: 'block', marginBottom: '8px' }}>QUESTIONS</span>
+            <span style={{ fontSize: '12px', fontWeight: 'bold', color: '#D4AF37', letterSpacing: '0.2em', display: 'block', marginBottom: '8px' }}>QUESTIONS</span>
             <h2 style={{ fontSize: '2.5rem', fontWeight: '900', margin: 0 }}>
-              שאלות <span style={{ color: '#f59e0b' }}>נפוצות</span>
+              שאלות <span style={{ color: '#D4AF37' }}>נפוצות</span>
             </h2>
           </div>
 
@@ -667,8 +691,10 @@ export default function Home() {
                 <div 
                   key={index}
                   style={{
-                    border: '1px solid rgba(255, 255, 255, 0.05)',
-                    backgroundColor: 'rgba(255, 255, 255, 0.01)',
+                    border: '1px solid rgba(212, 175, 55, 0.1)',
+                    backgroundColor: 'rgba(255, 255, 255, 0.02)',
+                    backdropFilter: 'blur(8px)',
+                    WebkitBackdropFilter: 'blur(8px)',
                     borderRadius: '16px',
                     overflow: 'hidden',
                   }}
@@ -692,16 +718,16 @@ export default function Home() {
                     }}
                   >
                     <span style={{ flex: 1 }}>{faq.question}</span>
-                    <span style={{ color: '#f59e0b', transition: 'transform 0.3s', transform: isOpen ? 'rotate(180deg)' : 'none' }}>▼</span>
+                    <span style={{ color: '#D4AF37', transition: 'transform 0.3s', transform: isOpen ? 'rotate(180deg)' : 'none' }}>▼</span>
                   </button>
                   {isOpen && (
                     <div style={{
                       padding: '24px',
-                      borderTop: '1px solid rgba(255, 255, 255, 0.05)',
-                      color: '#a3a3a3',
+                      borderTop: '1px solid rgba(212, 175, 55, 0.1)',
+                      color: '#a1a1aa',
                       fontSize: '16px',
                       lineHeight: '1.7',
-                      backgroundColor: 'rgba(0,0,0,0.2)',
+                      backgroundColor: 'rgba(0, 0, 0, 0.3)',
                     }}>
                       {faq.answer}
                     </div>
@@ -718,7 +744,7 @@ export default function Home() {
          ========================================== */}
       <footer style={{
         padding: '60px 24px',
-        borderTop: '1px solid rgba(255, 255, 255, 0.05)',
+        borderTop: '1px solid rgba(212, 175, 55, 0.1)',
         backgroundColor: '#050506',
       }}>
         <div style={{
@@ -732,7 +758,7 @@ export default function Home() {
           gap: '32px',
         }}>
           <div style={{ textAlign: 'right' }}>
-            <span style={{ fontSize: '18px', fontWeight: '900', color: '#f59e0b', letterSpacing: '0.2em', display: 'block', marginBottom: '8px' }}>YITZHAK AZRAN</span>
+            <span style={{ fontSize: '18px', fontWeight: '900', color: '#D4AF37', letterSpacing: '0.2em', display: 'block', marginBottom: '8px' }}>YITZHAK AZRAN</span>
             <span style={{ color: '#52525b', fontSize: '13px' }}>THE METHOD. ALL RIGHTS RESERVED © 2026</span>
           </div>
           <div style={{ display: 'flex', gap: '32px' }}>
@@ -740,7 +766,7 @@ export default function Home() {
               href="https://instagram.com/yitzhak_azran" 
               target="_blank" 
               rel="noopener noreferrer"
-              style={{ color: '#a3a3a3', textDecoration: 'none', fontWeight: 'bold', fontSize: '14px', transition: 'color 0.2s' }}
+              style={{ color: '#a1a1aa', textDecoration: 'none', fontWeight: 'bold', fontSize: '14px' }}
             >
               INSTAGRAM
             </a>
@@ -748,7 +774,7 @@ export default function Home() {
               href="https://wa.me/972559939351" 
               target="_blank" 
               rel="noopener noreferrer"
-              style={{ color: '#a3a3a3', textDecoration: 'none', fontWeight: 'bold', fontSize: '14px', transition: 'color 0.2s' }}
+              style={{ color: '#a1a1aa', textDecoration: 'none', fontWeight: 'bold', fontSize: '14px' }}
             >
               WHATSAPP
             </a>
