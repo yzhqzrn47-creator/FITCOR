@@ -1,0 +1,86 @@
+'use client';
+import React from 'react';
+
+// הגדרת הנתונים עבור הכרטיסיות - נקי ומסודר
+const advantages = [
+  {
+    icon: '💪',
+    title: 'תוכנית אימונים מותאמת אישית',
+    description: 'נבנית מאפס עבור הגוף, המטרות ורמת הכושר הנוכחית שלך.',
+  },
+  {
+    icon: '🥗',
+    title: 'תזונה שמתאימה לחיים שלך',
+    description: 'בלי הרעבה. תפריט גמיש, בריא וטעים שתוכל להתמיד בו.',
+  },
+  {
+    icon: '📈',
+    title: 'מעקב שבועי מדויק',
+    description: 'ניתוח התקדמות, שקילות ומדידות כדי לוודא שאנחנו במסלול.',
+  },
+  {
+    icon: '💬',
+    title: 'זמינות אישית בוואטסאפ',
+    description: 'אני כאן לכל שאלה, התייעצות או דחיפה קלה שצריך בדרך.',
+  },
+  {
+    icon: '📸',
+    title: 'השוואת תמונות התקדמות',
+    description: 'ויזואליזציה של השינוי הפיזי כדי לראות את התוצאות בעיניים.',
+  },
+  {
+    icon: '🎯',
+    title: 'התאמות עד להשגת היעד',
+    description: 'התוכנית דינמית ומשתנה יחד איתך כדי למקסם תוצאות.',
+  },
+];
+
+export default function WhyMe() {
+  return (
+    <section id="why-me" className="relative py-24 px-4 bg-[#030303] overflow-hidden">
+      {/* אפקט זוהר עדין בצד */}
+      <div className="gold-glow -bottom-[20%] -right-[10%] opacity-10 md:w-[600px] md:h-[600px]" />
+      
+      <div className="max-w-7xl mx-auto relative z-10">
+        {/* כותרת הסקשן */}
+        <div className="text-center mb-16 animate-fade-in">
+          <span className="font-space text-xs md:text-sm tracking-[0.3em] text-amber-400 uppercase mb-2 block">
+            THE ADVANTAGE
+          </span>
+          <h2 className="text-4xl md:text-6xl font-black tracking-tight text-white mb-4">
+            למה דווקא <span className="font-space text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 to-amber-400">ME</span>?
+          </h2>
+          <p className="max-w-2xl mx-auto text-gray-400 text-base md:text-lg leading-relaxed">
+            השילוב המנצח בין מקצועיות ללא פשרות, יחס אישי וטכנולוגיה מתקדמת שיביא אותך לגרסה הכי טובה של עצמך.
+          </p>
+        </div>
+
+        {/* רשת הכרטיסיות (Grid) - 3 בעמודה בדסקטופ, 1 בנייד */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          {advantages.map((item, index) => (
+            <div 
+              key={index}
+              className="glass-card rounded-3xl p-8 flex flex-col items-start gap-4 transition-all duration-500 hover:-translate-y-2 animate-slide-up"
+              style={{ animationDelay: `${index * 100}ms` }} // אנימציה מדורגת
+            >
+              {/* אייקון בעיצוב זהב */}
+              <div className="text-5xl mb-2 filter drop-shadow-[0_0_8px_rgba(212,175,55,0.5)]">
+                {item.icon}
+              </div>
+              
+              {/* כותרת הכרטיסייה */}
+              <h3 className="text-xl md:text-2xl font-bold text-white tracking-tight">
+                {item.title}
+              </h3>
+              
+              {/* תיאור הכרטיסייה */}
+              <p className="text-gray-400 text-sm md:text-base leading-relaxed">
+                {item.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
