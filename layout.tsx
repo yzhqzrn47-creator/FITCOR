@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import "./globals.css"; // מייבא את העיצוב של Tailwind
 
 export const metadata: Metadata = {
   title: "Yitzhak Azran - Fitness Coach",
@@ -11,8 +12,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="he" dir="rtl" style={{ backgroundColor: "#070708", color: "#ffffff" }}>
-      <body style={{ backgroundColor: "#070708", color: "#ffffff", margin: 0, padding: 0 }}>
+    <html lang="he" dir="rtl" className="bg-[#070708]">
+      <body className="bg-[#070708] text-white antialiased">
         {children}
       </body>
     </html>
