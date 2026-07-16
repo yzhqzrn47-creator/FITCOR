@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 
 // ==========================================
-// 1. נתוני האתר (יתרונות, שלבים, ביקורות, שאלות)
+// 1. נתוני האתר (יתרונות, שלבים, שאלות)
 // ==========================================
 const advantages = [
   {
@@ -58,27 +58,6 @@ const steps = [
     title: 'ליווי צמוד ומעקב שבועי',
     description: 'בכל שבוע אנחנו מנתחים התקדמות, עושים התאמות ומבטיחים שלא תפסיק להשתפר.',
   },
-];
-
-const reviews = [
-  {
-    name: 'אורן לוי',
-    role: 'מתאמן ליווי אישי אונליין',
-    text: 'הגעתי ליצחק אחרי שנים של ניסיונות לבד בחדר כושר בלי תוצאות. תוך 3 חודשים הגענו לאחוז שומן נמוך וקוביות שלא ראיתי בחיים שלי. הליווי הכי מקצועי שיש.',
-    stars: 5
-  },
-  {
-    name: 'תומר כהן',
-    role: 'חייל משוחרר',
-    text: 'הזמינות של יצחק בוואטסאפ זה משהו שלא ראיתי אצל אף מאמן. הוא עונה על כל שאלה, מתקן לי טכניקה בסרטונים שאני שולח לו, ומחזיק אותי מפוקס ב-100.',
-    stars: 5
-  },
-  {
-    name: 'דניאל אהרוני',
-    role: 'עובד שעות ארוכות (הייטק)',
-    text: 'היה לי קשה להתמיד בגלל העבודה. יצחק בנה לי תוכנית גמישה של 3 אימונים בשבוע ותפריט שלא דורש ממני לבשל כל היום. חטוב וחזק מאי פעם.',
-    stars: 5
-  }
 ];
 
 const faqs = [
@@ -156,7 +135,11 @@ export default function Home() {
   };
 
   return (
-    <main dir="rtl" className="min-h-screen bg-[#070708] text-white font-sans overflow-x-hidden selection:bg-amber-500/30 selection:text-amber-300">
+    <main 
+      dir="rtl" 
+      style={{ backgroundColor: '#070708', color: '#ffffff' }}
+      className="min-h-screen font-sans overflow-x-hidden selection:bg-amber-500/30 selection:text-amber-300"
+    >
       
       {/* ==========================================
           חלק 1: HERO (המסך הראשי)
@@ -187,7 +170,7 @@ export default function Home() {
             הליווי האישי שיעזור לך לבנות גוף חזק, חטוב ובריא באמצעות תוכנית מותאמת אישית, הכוונה תזונתית גמישה וליווי מקצועי צמוד אונליין.
           </p>
 
-          {/* תמונת הפתיחה שלך עם גלואו זהב מהפנט */}
+          {/* תמונת הפתיחה שלך עם גלואו זהב */}
           <div className="relative w-52 h-52 md:w-72 md:h-72 rounded-full overflow-hidden mb-16 border-4 border-amber-500/20 p-1.5 bg-neutral-900/60 shadow-[0_0_50px_rgba(245,158,11,0.2)] hover:border-amber-500/50 transition-all duration-700 hover:scale-105 group">
             <img 
               src="/yitzhak.jpg" 
@@ -221,7 +204,7 @@ export default function Home() {
       {/* ==========================================
           חלק 2: WHY ME (למה דווקא אני - זכוכית יוקרתית)
          ========================================== */}
-      <section id="why-me" className="relative py-44 px-4 bg-[#070708] border-t border-neutral-900/50">
+      <section id="why-me" className="relative py-44 px-4 border-t border-neutral-900/50" style={{ backgroundColor: '#070708' }}>
         <div className="absolute -bottom-[20%] -left-[10%] w-[500px] h-[500px] rounded-full bg-amber-500/5 blur-[120px] pointer-events-none"></div>
         
         <div className="max-w-7xl mx-auto relative z-10">
@@ -261,7 +244,7 @@ export default function Home() {
       {/* ==========================================
           חלק 3: HOW IT WORKS (איך זה עובד)
          ========================================== */}
-      <section id="how-it-works" className="relative py-44 px-4 bg-black border-t border-neutral-900/50">
+      <section id="how-it-works" className="relative py-44 px-4 border-t border-neutral-900/50" style={{ backgroundColor: '#050506' }}>
         <div className="absolute top-[20%] -right-[10%] w-[500px] h-[500px] rounded-full bg-amber-500/5 blur-[120px] pointer-events-none"></div>
         
         <div className="max-w-6xl mx-auto relative z-10">
@@ -303,7 +286,7 @@ export default function Home() {
       {/* ==========================================
           חלק 4: השאלון החכם (THE SMART SURVEY - בעיצוב זכוכית קריסטל)
          ========================================== */}
-      <section id="survey-section" className="relative py-44 px-4 bg-[#070708] border-t border-neutral-900/50 min-h-[850px] flex items-center justify-center">
+      <section id="survey-section" className="relative py-44 px-4 border-t border-neutral-900/50 min-h-[850px] flex items-center justify-center" style={{ backgroundColor: '#070708' }}>
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-amber-500/10 blur-[150px] pointer-events-none"></div>
 
         <div className="max-w-2xl w-full mx-auto relative z-10">
@@ -475,55 +458,9 @@ export default function Home() {
       </section>
 
       {/* ==========================================
-          חלק 5: TESTIMONIALS (ביקורות ופידבקים)
+          חלק 5: FAQ (שאלות נפוצות)
          ========================================== */}
-      <section id="reviews" className="relative py-44 px-4 bg-black border-t border-neutral-900/50 overflow-hidden">
-        <div className="absolute top-[30%] left-[-10%] w-[500px] h-[500px] rounded-full bg-amber-500/5 blur-[120px] pointer-events-none"></div>
-        
-        <div className="max-w-6xl mx-auto relative z-10">
-          <div className="text-center mb-32">
-            <span className="text-xs md:text-sm font-bold tracking-[0.3em] text-amber-500 uppercase mb-4 block">
-              TESTIMONIALS
-            </span>
-            <h2 className="text-4xl md:text-6xl font-black tracking-tight text-white mb-6">
-              סיפורי ההצלחה <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-yellow-500">שלהם</span>
-            </h2>
-            <p className="max-w-xl mx-auto text-neutral-400 text-lg md:text-xl">
-              לא עוד הבטחות באוויר. תוצאות אמיתיות של אנשים אמיתיים שהחליטו לעשות שינוי בחיים.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-            {reviews.map((rev, index) => (
-              <div 
-                key={index}
-                className="bg-white/[0.01] backdrop-blur-md rounded-3xl p-8 md:p-10 flex flex-col justify-between gap-8 hover:-translate-y-3 transition duration-500 border border-white/5 hover:border-amber-500/30 shadow-2xl"
-              >
-                <div className="flex flex-col gap-6">
-                  <div className="flex gap-1 text-amber-500 text-2xl">
-                    {Array.from({ length: rev.stars }).map((_, i) => (
-                      <span key={i}>★</span>
-                    ))}
-                  </div>
-                  <p className="text-neutral-300 text-base md:text-lg leading-relaxed italic">
-                    &quot;{rev.text}&quot;
-                  </p>
-                </div>
-                
-                <div className="border-t border-white/10 pt-6 mt-6">
-                  <h4 className="text-white font-black text-xl">{rev.name}</h4>
-                  <span className="text-xs text-amber-500 font-bold uppercase tracking-wider">{rev.role}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ==========================================
-          חלק 6: FAQ (שאלות נפוצות)
-         ========================================== */}
-      <section id="faq" className="relative py-44 px-4 bg-[#070708] border-t border-neutral-900/50">
+      <section id="faq" className="relative py-44 px-4 border-t border-neutral-900/50" style={{ backgroundColor: '#070708' }}>
         <div className="max-w-4xl mx-auto relative z-10">
           <div className="text-center mb-32">
             <span className="text-xs md:text-sm font-bold tracking-[0.3em] text-amber-500 uppercase mb-4 block">
@@ -564,9 +501,9 @@ export default function Home() {
       </section>
 
       {/* ==========================================
-          חלק 7: FOOTER
+          חלק 6: FOOTER
          ========================================== */}
-      <footer className="relative py-20 px-4 bg-[#050506] border-t border-neutral-900 text-center">
+      <footer className="relative py-20 px-4 border-t border-neutral-900 text-center" style={{ backgroundColor: '#050506' }}>
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10">
           <div className="text-right">
             <span className="text-lg font-black tracking-[0.4em] text-amber-500 block mb-2" dir="ltr">
@@ -583,7 +520,7 @@ export default function Home() {
       </footer>
 
       {/* ==========================================
-          חלק 8: כפתור וואטסאפ צף
+          חלק 7: כפתור וואטסאפ צף
          ========================================== */}
       <a 
         href="https://wa.me/972559939351"
