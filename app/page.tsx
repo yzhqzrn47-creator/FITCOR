@@ -134,7 +134,6 @@ export default function Home() {
       lineHeight: '1.5',
     }}>
       
-      {/* סגנונות גלובליים מוזרקים בצורה בטוחה לטובת האנימציה של ה-Spinner */}
       <style dangerouslySetInnerHTML={{__html: `
         @keyframes spin {
           0% { transform: rotate(0deg); }
@@ -142,9 +141,6 @@ export default function Home() {
         }
       `}} />
 
-      {/* ==========================================
-          HERO SECTION (מסך פתיחה יוקרתי)
-         ========================================== */}
       <section style={{
         position: 'relative',
         minHeight: '100vh',
@@ -156,7 +152,6 @@ export default function Home() {
         padding: '120px 24px 80px 24px',
         boxSizing: 'border-box',
       }}>
-        {/* אפקט הילת זהב עמוק מאחורי התוכן */}
         <div style={{
           position: 'absolute',
           top: '25%',
@@ -190,7 +185,7 @@ export default function Home() {
 
           <h1 style={{ 
             margin: '0 0 24px 0', 
-            fontSize: 'clamp(2.2rem, 7.5vw, 3.5rem)', /* פונקציית קלאמפ המונעת מהטקסט לגלוש בניידים */
+            fontSize: 'clamp(2.2rem, 7.5vw, 3.5rem)', 
             fontWeight: '900', 
             letterSpacing: '-1px' 
           }}>
@@ -217,7 +212,7 @@ export default function Home() {
 
           <p style={{
             maxWidth: '600px',
-            margin: '0 auto 48px auto',
+            margin: '0 auto 40px auto',
             color: '#a1a1aa',
             fontSize: 'clamp(1rem, 3.5vw, 1.2rem)',
             lineHeight: '1.75',
@@ -225,30 +220,54 @@ export default function Home() {
             הליווי האישי שיעזור לך לבנות גוף חזק, חטוב ובריא באמצעות תוכנית אימונים מותאמת אישית, הכוונה תזונתית גמישה וליווי מקצועי צמוד אונליין.
           </p>
 
-          {/* תמונת פרופיל אישית בעיצוב יוקרתי */}
           <div style={{
             position: 'relative',
-            width: 'min(230px, 55vw)',
-            height: 'min(230px, 55vw)',
-            borderRadius: '50%',
-            overflow: 'hidden',
+            maxWidth: '460px',
             margin: '0 auto 48px auto',
-            border: '2px solid rgba(212, 175, 55, 0.4)',
-            boxShadow: '0 0 50px rgba(212, 175, 55, 0.2)',
-            backgroundColor: '#0B0B0C',
+            padding: '28px 20px',
+            borderRadius: '24px',
+            backgroundColor: 'rgba(255, 255, 255, 0.015)',
+            backdropFilter: 'blur(16px)',
+            WebkitBackdropFilter: 'blur(16px)',
+            border: '1px solid rgba(212, 175, 55, 0.2)',
+            boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.05)',
           }}>
-            <img 
-              src="/yitzhak.jpg" 
-              alt="יצחק עזרן"
-              style={{
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover',
-              }}
-              onError={(e) => {
-                e.currentTarget.src = "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=600";
-              }}
-            />
+            <div style={{
+              fontSize: '11px',
+              fontWeight: '900',
+              color: '#D4AF37',
+              letterSpacing: '0.2em',
+              marginBottom: '20px',
+              textTransform: 'uppercase'
+            }}>
+              🌟 הסטנדרט החדש שלך לתוצאות
+            </div>
+            
+            <div style={{
+              display: 'flex',
+              justifyContent: 'space-around',
+              alignItems: 'center',
+              gap: '8px',
+            }}>
+              <div style={{ flex: 1, textAlign: 'center' }}>
+                <div style={{ fontSize: '22px', fontWeight: '900', color: '#D4AF37', lineHeight: '1' }}>100%</div>
+                <div style={{ fontSize: '12px', color: '#e4e4e7', marginTop: '6px', fontWeight: '700' }}>מותאם אישית</div>
+              </div>
+              
+              <div style={{ width: '1px', height: '35px', backgroundColor: 'rgba(212, 175, 55, 0.15)' }}></div>
+              
+              <div style={{ flex: 1, textAlign: 'center' }}>
+                <div style={{ fontSize: '22px', fontWeight: '900', color: '#D4AF37', lineHeight: '1' }}>24/6</div>
+                <div style={{ fontSize: '12px', color: '#e4e4e7', marginTop: '6px', fontWeight: '700' }}>זמינות אישית</div>
+              </div>
+              
+              <div style={{ width: '1px', height: '35px', backgroundColor: 'rgba(212, 175, 55, 0.15)' }}></div>
+              
+              <div style={{ flex: 1, textAlign: 'center' }}>
+                <div style={{ fontSize: '22px', fontWeight: '900', color: '#D4AF37', lineHeight: '1' }}>PRO</div>
+                <div style={{ fontSize: '12px', color: '#e4e4e7', marginTop: '6px', fontWeight: '700' }}>מעטפת מדעית</div>
+              </div>
+            </div>
           </div>
 
           <button 
@@ -273,9 +292,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ==========================================
-          WHY ME (יתרונות - עם אפקט זכוכית אמיתי)
-         ========================================== */}
       <section style={{
         padding: '100px 24px',
         borderTop: '1px solid rgba(212, 175, 55, 0.1)',
@@ -320,9 +336,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ==========================================
-          HOW IT WORKS (תהליך העבודה - אפקט זכוכית עדין)
-         ========================================== */}
       <section style={{
         padding: '100px 24px',
         borderTop: '1px solid rgba(212, 175, 55, 0.1)',
@@ -374,9 +387,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ==========================================
-          SMART SURVEY (שאלון זכוכית וזהב)
-         ========================================== */}
       <section id="survey-section" style={{
         padding: '100px 24px',
         borderTop: '1px solid rgba(212, 175, 55, 0.1)',
@@ -668,9 +678,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ==========================================
-          FAQ (שאלות נפוצות - כפתורי זכוכית שקופים)
-         ========================================== */}
       <section id="faq" style={{
         padding: '100px 24px',
         borderTop: '1px solid rgba(212, 175, 55, 0.1)',
@@ -739,9 +746,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ==========================================
-          FOOTER (תחתית האתר)
-         ========================================== */}
       <footer style={{
         padding: '60px 24px',
         borderTop: '1px solid rgba(212, 175, 55, 0.1)',
@@ -763,7 +767,7 @@ export default function Home() {
           </div>
           <div style={{ display: 'flex', gap: '32px' }}>
             <a 
-              href="https://instagram.com/yitzhak_azran" 
+              href="https://instagram.com/yitzhakazran" 
               target="_blank" 
               rel="noopener noreferrer"
               style={{ color: '#a1a1aa', textDecoration: 'none', fontWeight: 'bold', fontSize: '14px' }}
