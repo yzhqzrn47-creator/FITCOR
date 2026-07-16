@@ -53,7 +53,7 @@ const steps = [
   {
     num: '04',
     title: 'ליווי צמוד ומעקב שבועי',
-    description: 'בכל שבוע אנחנו מנתחים התקבלות, עושים התאמות ומבטיחים שלא תפסיק להשתפר.',
+    description: 'בכל שבוע אנחנו מנתחים התקדמות, עושים התאמות ומבטיחים שלא תפסיק להשתפר.',
   },
 ];
 
@@ -154,15 +154,15 @@ export default function Home() {
           top: '20%',
           left: '50%',
           transform: 'translateX(-50%)',
-          width: 'min(90vw, 600px)',
-          height: 'min(90vw, 600px)',
+          width: '600px',
+          height: '600px',
           borderRadius: '50%',
           background: 'radial-gradient(circle, rgba(245, 158, 11, 0.08) 0%, transparent 70%)',
           pointerEvents: 'none',
           zIndex: 0,
         }}></div>
         
-        <div style={{ relative: 'z-10', maxWidth: '800px', width: '100%', zIndex: 1 }}>
+        <div style={{ position: 'relative', maxWidth: '800px', width: '100%', zIndex: 1 }}>
           <div style={{ marginBottom: '24px' }}>
             <span style={{
               fontSize: '13px',
@@ -179,7 +179,7 @@ export default function Home() {
             </span>
           </div>
 
-          <h1 style={{ margin: '0 0 24px 0', fontSize: 'clamp(2.5rem, 6vw, 5rem)', fontWeight: '900', letterSpacing: '-1px' }}>
+          <h1 style={{ margin: '0 0 24px 0', fontSize: '3.5rem', fontWeight: '900', letterSpacing: '-1px' }}>
             <span style={{
               display: 'block',
               background: 'linear-gradient(135deg, #fbbf24 0%, #d97706 100%)',
@@ -191,7 +191,7 @@ export default function Home() {
             </span>
             <span style={{
               display: 'block',
-              fontSize: 'clamp(1.1rem, 3vw, 2rem)',
+              fontSize: '1.5rem',
               color: '#ffffff',
               letterSpacing: '0.15em',
               fontWeight: '800',
@@ -205,7 +205,7 @@ export default function Home() {
             maxWidth: '600px',
             margin: '0 auto 48px auto',
             color: '#a3a3a3',
-            fontSize: 'clamp(1rem, 2vw, 1.25rem)',
+            fontSize: '1.2rem',
             lineHeight: '1.7',
           }}>
             הליווי האישי שיעזור לך לבנות גוף חזק, חטוב ובריא באמצעות תוכנית מותאמת אישית, הכוונה תזונתית גמישה וליווי מקצועי צמוד אונליין.
@@ -251,14 +251,6 @@ export default function Home() {
               transition: 'transform 0.2s, box-shadow 0.2s',
               boxShadow: '0 8px 30px rgba(245, 158, 11, 0.3)',
             }}
-            onMouseOver={(e) => {
-              e.currentTarget.style.transform = 'scale(1.03)';
-              e.currentTarget.style.boxShadow = '0 12px 40px rgba(245, 158, 11, 0.45)';
-            }}
-            onMouseOut={(e) => {
-              e.currentTarget.style.transform = 'none';
-              e.currentTarget.style.boxShadow = '0 8px 30px rgba(245, 158, 11, 0.3)';
-            }}
           >
             אני רוצה להתחיל ←
           </button>
@@ -276,7 +268,7 @@ export default function Home() {
         <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '64px' }}>
             <span style={{ fontSize: '12px', fontWeight: 'bold', color: '#f59e0b', letterSpacing: '0.2em', display: 'block', marginBottom: '8px' }}>THE ADVANTAGE</span>
-            <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: '900', margin: 0 }}>
+            <h2 style={{ fontSize: '2.5rem', fontWeight: '900', margin: 0 }}>
               למה דווקא <span style={{ color: '#f59e0b' }}>ME</span>?
             </h2>
           </div>
@@ -294,7 +286,6 @@ export default function Home() {
                   borderRadius: '24px',
                   padding: '32px',
                   border: '1px solid rgba(255, 255, 255, 0.05)',
-                  transition: 'transform 0.3s, border-color 0.3s',
                   display: 'flex',
                   flexDirection: 'column',
                   alignItems: 'flex-start',
@@ -321,7 +312,7 @@ export default function Home() {
         <div style={{ maxWidth: '900px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '64px' }}>
             <span style={{ fontSize: '12px', fontWeight: 'bold', color: '#f59e0b', letterSpacing: '0.2em', display: 'block', marginBottom: '8px' }}>THE PROCESS</span>
-            <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: '900', margin: 0 }}>
+            <h2 style={{ fontSize: '2.5rem', fontWeight: '900', margin: 0 }}>
               איך זה <span style={{ color: '#f59e0b' }}>WORKS</span>?
             </h2>
           </div>
@@ -664,7 +655,7 @@ export default function Home() {
         <div style={{ maxWidth: '800px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '64px' }}>
             <span style={{ fontSize: '12px', fontWeight: 'bold', color: '#f59e0b', letterSpacing: '0.2em', display: 'block', marginBottom: '8px' }}>QUESTIONS</span>
-            <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: '900', margin: 0 }}>
+            <h2 style={{ fontSize: '2.5rem', fontWeight: '900', margin: 0 }}>
               שאלות <span style={{ color: '#f59e0b' }}>נפוצות</span>
             </h2>
           </div>
@@ -695,7 +686,7 @@ export default function Home() {
                       fontWeight: 'bold',
                       cursor: 'pointer',
                       display: 'flex',
-                      justifyContent: 'between',
+                      justifyContent: 'space-between',
                       alignItems: 'center',
                       gap: '12px',
                     }}
@@ -750,8 +741,6 @@ export default function Home() {
               target="_blank" 
               rel="noopener noreferrer"
               style={{ color: '#a3a3a3', textDecoration: 'none', fontWeight: 'bold', fontSize: '14px', transition: 'color 0.2s' }}
-              onMouseOver={(e) => e.currentTarget.style.color = '#f59e0b'}
-              onMouseOut={(e) => e.currentTarget.style.color = '#a3a3a3'}
             >
               INSTAGRAM
             </a>
@@ -760,8 +749,6 @@ export default function Home() {
               target="_blank" 
               rel="noopener noreferrer"
               style={{ color: '#a3a3a3', textDecoration: 'none', fontWeight: 'bold', fontSize: '14px', transition: 'color 0.2s' }}
-              onMouseOver={(e) => e.currentTarget.style.color = '#25D366'}
-              onMouseOut={(e) => e.currentTarget.style.color = '#a3a3a3'}
             >
               WHATSAPP
             </a>
