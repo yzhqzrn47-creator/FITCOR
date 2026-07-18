@@ -4,6 +4,9 @@ import "./globals.css"; // טעינת קובץ העיצוב הראשי של Tail
 export const metadata: Metadata = {
   title: "Yitzhak Azran - Fitness Coach",
   description: "The Method - Build Your Best Version",
+  verification: {
+    google: "bgdMGnxyCrCio9TDulflkzXgTUcNvfWFonzL-hu_wv4",
+  },
 };
 
 export default function RootLayout({
