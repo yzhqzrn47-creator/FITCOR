@@ -83,7 +83,7 @@ export default function RootLayout({
             </a>
             <span>|</span>
             <a 
-              href="https://shop.fitcor.online/policies/privacy-policy" 
+              href="https://shop.fitcor.online/pages/מדיניות-הפרטיות" 
               target="_blank" 
               rel="noopener noreferrer" 
               style={{ color: "#A1A1AA", textDecoration: "none" }}
@@ -92,7 +92,7 @@ export default function RootLayout({
             </a>
             <span>|</span>
             <a 
-              href="https://shop.fitcor.online/policies/accessibility-policy" 
+              href="https://shop.fitcor.online/pages/%D7%94%D7%A6%D7%97%D7%A8%D7%AA-%D7%A0%D7%92%D7%99%D7%A9%D7%95%D7%AA" 
               target="_blank" 
               rel="noopener noreferrer" 
               style={{ color: "#A1A1AA", textDecoration: "none" }}
