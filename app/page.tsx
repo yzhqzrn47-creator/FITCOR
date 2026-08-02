@@ -755,37 +755,25 @@ export default function Home() {
           maxWidth: '1100px',
           margin: '0 auto',
           display: 'flex',
-          flexDirection: 'row',
-          flexWrap: 'wrap',
-          justifyContent: 'space-between',
+          flexDirection: 'column',
           alignItems: 'center',
-          gap: '32px',
+          justifyContent: 'center',
+          gap: '16px',
+          textAlign: 'center',
         }}>
-          <div style={{ textAlign: 'right' }}>
-            <span style={{ fontSize: '18px', fontWeight: '900', color: '#D4AF37', letterSpacing: '0.2em', display: 'block', marginBottom: '8px' }}>YITZHAK AZRAN</span>
-            <span style={{ color: '#52525b', fontSize: '13px' }}>THE METHOD. ALL RIGHTS RESERVED © 2026</span>
+          <div style={{
+            fontSize: '16px',
+            fontWeight: '900',
+            letterSpacing: '0.15em',
+            color: '#D4AF37',
+          }}>
+            YITZHAK AZRAN
           </div>
-          <div style={{ display: 'flex', gap: '32px' }}>
-            <a 
-              href="https://instagram.com/yitzhakazran" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              style={{ color: '#a1a1aa', textDecoration: 'none', fontWeight: 'bold', fontSize: '14px' }}
-            >
-              INSTAGRAM
-            </a>
-            <a 
-              href="https://wa.me/972559939351" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              style={{ color: '#a1a1aa', textDecoration: 'none', fontWeight: 'bold', fontSize: '14px' }}
-            >
-              WHATSAPP
-            </a>
-          </div>
+          <p style={{ color: '#71717a', fontSize: '14px', margin: 0 }}>
+            © {new Date().getFullYear()} כל הזכויות שמורות ליצחק עזרן - אימון כושר אישי אונליין.
+          </p>
         </div>
       </footer>
-
     </main>
   );
 }
