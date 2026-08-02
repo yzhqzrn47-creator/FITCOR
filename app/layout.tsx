@@ -57,8 +57,57 @@ export default function RootLayout({
           `}
         </Script>
       </head>
-      <body style={{ fontFamily: "var(--font-assistant), sans-serif" }}>
-        {children}
+      <body style={{ fontFamily: "var(--font-assistant), sans-serif", display: "flex", flexDirection: "column", minHeight: "100vh", margin: 0 }}>
+        <main style={{ flex: 1 }}>
+          {children}
+        </main>
+
+        {/* פוטר משפטי וקישורי נגישות */}
+        <footer style={{
+          backgroundColor: "#000000",
+          color: "#A1A1AA",
+          padding: "24px 16px",
+          textAlign: "center",
+          fontSize: "14px",
+          borderTop: "1px solid #27272A",
+          width: "100%"
+        }}>
+          <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "12px", flexWrap: "wrap", marginBottom: "12px" }}>
+            <a 
+              href="https://fitcor.online/pages/terms" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              style={{ color: "#A1A1AA", textDecoration: "none" }}
+            >
+              תקנון ותנאי שימוש
+            </a>
+            <span>|</span>
+            <a 
+              href="https://fitcor.online/pages/privacy" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              style={{ color: "#A1A1AA", textDecoration: "none" }}
+            >
+              מדיניות פרטיות
+            </a>
+            <span>|</span>
+            <a 
+              href="https://fitcor.online/pages/accessibility" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              style={{ color: "#A1A1AA", textDecoration: "none" }}
+            >
+              הצהרת נגישות
+            </a>
+          </div>
+          <p style={{ margin: 0 }}>© {new Date().getFullYear()} FITCOR. כל הזכויות שמורות.</p>
+        </footer>
+
+        {/* תוסף נגישות חינמי - UserWay */}
+        <Script 
+          src="https://cdn.userway.org/widget.js" 
+          strategy="afterInteractive" 
+        />
       </body>
     </html>
   );
