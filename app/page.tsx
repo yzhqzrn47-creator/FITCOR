@@ -293,7 +293,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ABOUT SECTION (אודות יצחק עזרן) */}
+      {/* ABOUT SECTION */}
       <section style={{
         padding: '100px 24px',
         borderTop: '1px solid rgba(212, 175, 55, 0.1)',
@@ -357,7 +357,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* STORE SECTION (חנות FITCOR) */}
+      {/* STORE SECTION */}
       <section style={{
         padding: '100px 24px',
         borderTop: '1px solid rgba(212, 175, 55, 0.1)',
@@ -416,7 +416,9 @@ export default function Home() {
           </div>
 
           <a 
-            href="/shop" 
+            href="https://shop.fitcor.online" 
+            target="_blank"
+            rel="noopener noreferrer"
             style={{
               display: 'inline-block',
               backgroundColor: 'transparent',
