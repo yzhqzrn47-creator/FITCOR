@@ -141,6 +141,7 @@ export default function Home() {
         }
       `}} />
 
+      {/* HERO SECTION */}
       <section style={{
         position: 'relative',
         minHeight: '100vh',
@@ -179,7 +180,7 @@ export default function Home() {
               display: 'inline-block',
               boxShadow: '0 0 20px rgba(212, 175, 55, 0.05)',
             }}>
-              YITZHAK AZRAN
+              FITCOR BY YITZHAK AZRAN
             </span>
           </div>
 
@@ -292,10 +293,153 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ABOUT SECTION (אודות יצחק עזרן) */}
+      <section style={{
+        padding: '100px 24px',
+        borderTop: '1px solid rgba(212, 175, 55, 0.1)',
+        backgroundColor: '#050506',
+      }}>
+        <div style={{
+          maxWidth: '1000px',
+          margin: '0 auto',
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+          gap: '48px',
+          alignItems: 'center',
+        }}>
+          <div style={{
+            position: 'relative',
+            borderRadius: '24px',
+            border: '1px solid rgba(212, 175, 55, 0.3)',
+            padding: '32px',
+            backgroundColor: 'rgba(255, 255, 255, 0.02)',
+            backdropFilter: 'blur(12px)',
+            WebkitBackdropFilter: 'blur(12px)',
+          }}>
+            <span style={{ fontSize: '12px', fontWeight: 'bold', color: '#D4AF37', letterSpacing: '0.2em', display: 'block', marginBottom: '12px' }}>ABOUT ME</span>
+            <h2 style={{ fontSize: '2.2rem', fontWeight: '900', margin: '0 0 16px 0' }}>
+              נעים להכיר, <br />
+              <span style={{ color: '#D4AF37' }}>יצחק עזרן</span>
+            </h2>
+            <p style={{ color: '#a1a1aa', fontSize: '16px', lineHeight: '1.8', marginBottom: '16px' }}>
+              מאמן כושר אישי ומייסד מותג <strong style={{ color: '#ffffff' }}>FITCOR</strong>. המטרה שלי היא לקחת את התהליך שלך צעד אחד קדימה ולהפוך את הכושר והתזונה לחלק בלתי נפרד מאורח החיים שלך – ללא סבל, ללא דיאטות קיצוניות, ועם מקסימום תוצאות בשטח.
+            </p>
+            <p style={{ color: '#a1a1aa', fontSize: '16px', lineHeight: '1.8', margin: 0 }}>
+              אני מאמין בליווי אישי, בגובה הבלייניים, תוך התאמה מדויקת של התוכניות אל סדר היום שלך. הליווי שלי משלב מדע, התמדה ומשמעת עצמית שיבטיחו שתגיע לגירסה הטובה ביותר של עצמך.
+            </p>
+          </div>
+
+          <div style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '16px',
+          }}>
+            <div style={{
+              padding: '24px',
+              borderRadius: '20px',
+              backgroundColor: 'rgba(212, 175, 55, 0.05)',
+              border: '1px solid rgba(212, 175, 55, 0.15)',
+            }}>
+              <h4 style={{ margin: '0 0 8px 0', color: '#D4AF37', fontSize: '18px', fontWeight: '800' }}>🎯 גישה מותאמת אישית</h4>
+              <p style={{ margin: 0, color: '#a1a1aa', fontSize: '14px', lineHeight: '1.6' }}>אין תוכנית אחת שמתאימה לכולם. כל תוכנית נבנית מאפס עבור הנתונים והמטרות שלך.</p>
+            </div>
+
+            <div style={{
+              padding: '24px',
+              borderRadius: '20px',
+              backgroundColor: 'rgba(212, 175, 55, 0.05)',
+              border: '1px solid rgba(212, 175, 55, 0.15)',
+            }}>
+              <h4 style={{ margin: '0 0 8px 0', color: '#D4AF37', fontSize: '18px', fontWeight: '800' }}>⚡ מעטפת 24/6 צמודה</h4>
+              <p style={{ margin: 0, color: '#a1a1aa', fontSize: '14px', lineHeight: '1.6' }}>מענה בוואטסאפ, דיוק טכניקת תרגילים בסרטונים ומעקב שבועי קפדני.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* STORE SECTION (חנות FITCOR) */}
       <section style={{
         padding: '100px 24px',
         borderTop: '1px solid rgba(212, 175, 55, 0.1)',
         backgroundColor: '#070708',
+      }}>
+        <div style={{ maxWidth: '1000px', margin: '0 auto', textAlign: 'center' }}>
+          <span style={{ fontSize: '12px', fontWeight: 'bold', color: '#D4AF37', letterSpacing: '0.2em', display: 'block', marginBottom: '8px' }}>OFFICIAL MERCH</span>
+          <h2 style={{ fontSize: '2.5rem', fontWeight: '900', margin: '0 0 16px 0' }}>
+            חנות המותג <span style={{ color: '#D4AF37' }}>FITCOR</span>
+          </h2>
+          <p style={{ color: '#a1a1aa', fontSize: '16px', maxWidth: '600px', margin: '0 auto 40px auto', lineHeight: '1.7' }}>
+            הביגוד והציוד שיגרמו לך להרגיש ולהיראות כמו מקצוען בכל אימון. מוצרי איכות בעיצוב יוקרתי.
+          </p>
+
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+            gap: '24px',
+            marginBottom: '40px',
+          }}>
+            <div style={{
+              padding: '24px',
+              borderRadius: '24px',
+              backgroundColor: 'rgba(255, 255, 255, 0.02)',
+              border: '1px solid rgba(212, 175, 55, 0.15)',
+              textAlign: 'center',
+            }}>
+              <div style={{ fontSize: '40px', marginBottom: '12px' }}>👕</div>
+              <h3 style={{ fontSize: '18px', fontWeight: '800', margin: '0 0 8px 0' }}>חולצות אימון FITCOR</h3>
+              <p style={{ color: '#a1a1aa', fontSize: '14px', margin: 0 }}>בד דריי-פיט נושם ומחטב בריזולוציה גבוהה.</p>
+            </div>
+
+            <div style={{
+              padding: '24px',
+              borderRadius: '24px',
+              backgroundColor: 'rgba(255, 255, 255, 0.02)',
+              border: '1px solid rgba(212, 175, 55, 0.15)',
+              textAlign: 'center',
+            }}>
+              <div style={{ fontSize: '40px', marginBottom: '12px' }}>🧢</div>
+              <h3 style={{ fontSize: '18px', fontWeight: '800', margin: '0 0 8px 0' }}>כובעי פרימיום</h3>
+              <p style={{ color: '#a1a1aa', fontSize: '14px', margin: 0 }}>עיצוב יוקרתי בגזרה מושלמת לאימון וליום-יום.</p>
+            </div>
+
+            <div style={{
+              padding: '24px',
+              borderRadius: '24px',
+              backgroundColor: 'rgba(255, 255, 255, 0.02)',
+              border: '1px solid rgba(212, 175, 55, 0.15)',
+              textAlign: 'center',
+            }}>
+              <div style={{ fontSize: '40px', marginBottom: '12px' }}>🎒</div>
+              <h3 style={{ fontSize: '18px', fontWeight: '800', margin: '0 0 8px 0' }}>אביזרי כושר וציוד</h3>
+              <p style={{ color: '#a1a1aa', fontSize: '14px', margin: 0 }}>תיקים, רצועות ושייקרים ממותגים לתוצאות מקסימליות.</p>
+            </div>
+          </div>
+
+          <a 
+            href="/shop" 
+            style={{
+              display: 'inline-block',
+              backgroundColor: 'transparent',
+              color: '#D4AF37',
+              border: '1px solid #D4AF37',
+              padding: '14px 36px',
+              borderRadius: '9999px',
+              fontSize: '16px',
+              fontWeight: '800',
+              textDecoration: 'none',
+              transition: 'all 0.2s',
+            }}
+          >
+            מעבר לחנות FITCOR ←
+          </a>
+        </div>
+      </section>
+
+      {/* ADVANTAGES SECTION */}
+      <section style={{
+        padding: '100px 24px',
+        borderTop: '1px solid rgba(212, 175, 55, 0.1)',
+        backgroundColor: '#050506',
       }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '64px' }}>
@@ -336,10 +480,11 @@ export default function Home() {
         </div>
       </section>
 
+      {/* PROCESS SECTION */}
       <section style={{
         padding: '100px 24px',
         borderTop: '1px solid rgba(212, 175, 55, 0.1)',
-        backgroundColor: '#050506',
+        backgroundColor: '#070708',
       }}>
         <div style={{ maxWidth: '900px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '64px' }}>
@@ -387,10 +532,11 @@ export default function Home() {
         </div>
       </section>
 
+      {/* SURVEY SECTION */}
       <section id="survey-section" style={{
         padding: '100px 24px',
         borderTop: '1px solid rgba(212, 175, 55, 0.1)',
-        backgroundColor: '#070708',
+        backgroundColor: '#050506',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
@@ -678,6 +824,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* FAQ SECTION */}
       <section id="faq" style={{
         padding: '100px 24px',
         borderTop: '1px solid rgba(212, 175, 55, 0.1)',
@@ -746,6 +893,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* FOOTER */}
       <footer style={{
         padding: '60px 24px',
         borderTop: '1px solid rgba(212, 175, 55, 0.1)',
@@ -767,7 +915,7 @@ export default function Home() {
             letterSpacing: '0.15em',
             color: '#D4AF37',
           }}>
-            YITZHAK AZRAN
+            FITCOR BY YITZHAK AZRAN
           </div>
           <p style={{ color: '#71717a', fontSize: '14px', margin: 0 }}>
             © {new Date().getFullYear()} כל הזכויות שמורות ליצחק עזרן - אימון כושר אישי אונליין.
