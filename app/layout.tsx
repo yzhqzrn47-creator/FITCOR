@@ -1,114 +1,85 @@
-import Script from "next/script";
-import { Assistant } from "next/font/google";
+'use client';
+import React, { useEffect, useState } from 'react';
+import { colors, primaryButton } from '../lib/theme';
 
-const assistant = Assistant({
-  subsets: ["hebrew"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-assistant",
-});
+export default function StickyMobileCta() {
+  const [show, setShow] = useState(false);
 
-export const metadata = {
-  title: "חצי שעה | THE METHOD - יצחק עזרן אימון אישי",
-  description: "הצטרפו לאימון 24/6 מותאם אישית שיעניק לכם מוטיבציה, תמיכה ומקצועיות גבוהה, מיועד לכל הרמות בכל שלב בו אתם נמצאים בהם.",
-  verification: {
-    google: "bgdMGnxyCrCiO9tDuIflkzXgTUcNvFWfOnZL-hu_wv4",
-  },
-  openGraph: {
-    title: "THE METHOD - יצחק עזרן אימון אישי",
-    description: "אימון אישי 24/6 - מוטיבציה, תמיכה ומקצועיות לכל רמה.",
-    locale: "he_IL",
-    type: "website",
-    images: ["/og-image.jpg"],
-  },
-  icons: {
-    icon: "/favicon.ico",
-  },
-};
+  useEffect(() => {
+    const onScroll = () => {
+      const scrollY = window.scrollY;
+      const viewportBottom = scrollY + window.innerHeight;
+      const pageHeight = document.documentElement.scrollHeight;
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+      // מסתיר את הפס לפני שמגיעים לפוטר (כדי לא לכסות את קישורי
+      // התקנון/פרטיות/נגישות) - "קרוב לתחתית" מוגדר כ-500px אחרונים.
+      const nearBottom = pageHeight - viewportBottom < 500;
+
+      // מסתיר את הפס כשסקשן השאלון עצמו נמצא בתצוגה - אין טעם להציע
+      // "לעבור לשאלון" כשהמשתמש כבר בתוכו.
+      const surveyEl = document.getElementById('survey-section');
+      const overlapsSurvey = surveyEl
+        ? surveyEl.getBoundingClientRect().top < window.innerHeight &&
+          surveyEl.getBoundingClientRect().bottom > 0
+        : false;
+
+      setShow(scrollY > window.innerHeight * 0.75 && !nearBottom && !overlapsSurvey);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  const handleClick = () => {
+    document.getElementById('survey-section')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
-    <html lang="he" dir="rtl" className={assistant.variable}>
-      <head>
-        {/* Google Consent Mode - ברירת מחדל: דחיית עוגיות עד הסכמה */}
-        <Script id="consent-default" strategy="beforeInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('consent', 'default', {
-              'ad_storage': 'denied',
-              'analytics_storage': 'denied'
-            });
-          `}
-        </Script>
-
-        {/* Google Analytics Setup */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-PM1YCECG87"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            gtag('js', new Date());
-            gtag('config', 'G-PM1YCECG87');
-          `}
-        </Script>
-      </head>
-      <body style={{ fontFamily: "var(--font-assistant), sans-serif", display: "flex", flexDirection: "column", minHeight: "100vh", margin: 0 }}>
-        <main style={{ flex: 1 }}>
-          {children}
-        </main>
-
-        {/* פוטר משפטי וקישורי נגישות */}
-        <footer style={{
-          backgroundColor: "#000000",
-          color: "#A1A1AA",
-          padding: "24px 16px",
-          textAlign: "center",
-          fontSize: "14px",
-          borderTop: "1px solid #27272A",
-          width: "100%"
-        }}>
-          <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "12px", flexWrap: "wrap", marginBottom: "12px" }}>
-            <a 
-              href="https://shop.fitcor.online/pages/contact" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              style={{ color: "#A1A1AA", textDecoration: "none" }}
-            >
-              תקנון ותנאי שימוש
-            </a>
-            <span>|</span>
-            <a 
-              href="https://shop.fitcor.online/pages/מדיניות-הפרטיות" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              style={{ color: "#A1A1AA", textDecoration: "none" }}
-            >
-              מדיניות פרטיות
-            </a>
-            <span>|</span>
-            <a 
-              href={encodeURI("https://shop.fitcor.online/pages/הצהרת-נגישות")} 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              style={{ color: "#A1A1AA", textDecoration: "none" }}
-            >
-              הצהרת נגישות
-            </a>
-          </div>
-          <p style={{ margin: 0 }}>© {new Date().getFullYear()} FITCOR. כל הזכויות שמורות.</p>
-        </footer>
-
-        {/* תוסף נגישות חינמי - UserWay */}
-        <Script 
-          src="https://cdn.userway.org/widget.js" 
-          strategy="afterInteractive" 
-        />
-      </body>
-    </html>
+    <>
+      {/* מוסתר לגמרי בדסקטופ - רלוונטי רק למובייל שבו קשה לגלול חזרה למעלה */}
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
+        @media (min-width: 900px) {
+          #fitcor-sticky-cta { display: none; }
+        }
+      `,
+        }}
+      />
+      <div
+        id="fitcor-sticky-cta"
+        style={{
+          position: 'fixed',
+          bottom: show ? 0 : '-100px',
+          left: 0,
+          right: 0,
+          zIndex: 50,
+          padding: '12px 16px',
+          backgroundColor: 'rgba(7, 7, 8, 0.92)',
+          backdropFilter: 'blur(12px)',
+          WebkitBackdropFilter: 'blur(12px)',
+          borderTop: `1px solid ${colors.cardBorderStrong}`,
+          transition: 'bottom 0.3s ease',
+          display: 'flex',
+          justifyContent: 'center',
+          boxSizing: 'border-box',
+        }}
+      >
+        <button
+          onClick={handleClick}
+          aria-label="עבור לשאלון ההתאמה האישית"
+          style={{
+            ...primaryButton,
+            width: '100%',
+            maxWidth: '460px',
+            padding: '14px 24px',
+            fontSize: '16px',
+            boxShadow: '0 4px 20px rgba(212, 175, 55, 0.3)',
+          }}
+        >
+          אני רוצה להתחיל ←
+        </button>
+      </div>
+    </>
   );
 }
