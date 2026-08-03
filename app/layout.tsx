@@ -20,14 +20,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="he" dir="rtl">
-      <head>
-        {/* סגנונות פנימיים להסתרת ה-CTA בדסקטופ */}
-        <style dangerouslySetInnerHTML={{ __html: `
-          @media (min-width: 900px) {
-            #fitcor-sticky-cta { display: none !important; }
-          }
-        `}} />
-      </head>
       <body
         className={assistant.variable}
         style={{
