@@ -1,6 +1,5 @@
 import Script from "next/script";
 import { Assistant } from "next/font/google";
-import { faqs } from "./lib/content";
 
 const assistant = Assistant({
   subsets: ["hebrew"],
@@ -26,28 +25,6 @@ export const metadata = {
   },
 };
 
-function FaqJsonLd() {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqs.map((faq) => ({
-      "@type": "Question",
-      name: faq.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: faq.answer,
-      },
-    })),
-  };
-
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-    />
-  );
-}
-
 export default function RootLayout({
   children,
 }: {
@@ -56,7 +33,6 @@ export default function RootLayout({
   return (
     <html lang="he" dir="rtl" className={assistant.variable}>
       <head>
-        <FaqJsonLd />
         {/* Google Consent Mode */}
         <Script id="consent-default" strategy="beforeInteractive">
           {`
@@ -112,7 +88,7 @@ export default function RootLayout({
           <span>דבר איתי ב-WhatsApp</span>
         </a>
 
-        {/* פוטר משפטי וקישורי נגישות מקוריים */}
+        {/* פוטר משפטי וקישורי נגישות מקוריים ל-Shopify */}
         <footer style={{
           backgroundColor: "#000000",
           color: "#A1A1AA",
