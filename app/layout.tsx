@@ -1,85 +1,73 @@
-'use client';
-import React, { useEffect, useState } from 'react';
-import { colors, primaryButton } from '../lib/theme';
+import type { Metadata } from "next";
+import { Assistant } from "next/font/google";
+import "./globals.css";
+import StickyMobileCta from "./components/StickyMobileCta"; // ודא שהנתיב לתיקיית components תואם לפרויקט שלך
 
-export default function StickyMobileCta() {
-  const [show, setShow] = useState(false);
+const assistant = Assistant({
+  subsets: ["hebrew", "latin"],
+  weight: ["300", "400", "600", "700", "800"],
+  variable: "--font-assistant",
+});
 
-  useEffect(() => {
-    const onScroll = () => {
-      const scrollY = window.scrollY;
-      const viewportBottom = scrollY + window.innerHeight;
-      const pageHeight = document.documentElement.scrollHeight;
+export const metadata: Metadata = {
+  title: "FITCOR - התאמת תוכנית אימונים ותזונה",
+  description: "השאלון שיבנה לך את התוכנית המדויקת ביותר למטרות שלך",
+};
 
-      // מסתיר את הפס לפני שמגיעים לפוטר (כדי לא לכסות את קישורי
-      // התקנון/פרטיות/נגישות) - "קרוב לתחתית" מוגדר כ-500px אחרונים.
-      const nearBottom = pageHeight - viewportBottom < 500;
-
-      // מסתיר את הפס כשסקשן השאלון עצמו נמצא בתצוגה - אין טעם להציע
-      // "לעבור לשאלון" כשהמשתמש כבר בתוכו.
-      const surveyEl = document.getElementById('survey-section');
-      const overlapsSurvey = surveyEl
-        ? surveyEl.getBoundingClientRect().top < window.innerHeight &&
-          surveyEl.getBoundingClientRect().bottom > 0
-        : false;
-
-      setShow(scrollY > window.innerHeight * 0.75 && !nearBottom && !overlapsSurvey);
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
-
-  const handleClick = () => {
-    document.getElementById('survey-section')?.scrollIntoView({ behavior: 'smooth' });
-  };
-
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
-    <>
-      {/* מוסתר לגמרי בדסקטופ - רלוונטי רק למובייל שבו קשה לגלול חזרה למעלה */}
-      <style
-        dangerouslySetInnerHTML={{
-          __html: `
-        @media (min-width: 900px) {
-          #fitcor-sticky-cta { display: none; }
-        }
-      `,
-        }}
-      />
-      <div
-        id="fitcor-sticky-cta"
+    <html lang="he" dir="rtl">
+      <body
+        className={assistant.variable}
         style={{
-          position: 'fixed',
-          bottom: show ? 0 : '-100px',
-          left: 0,
-          right: 0,
-          zIndex: 50,
-          padding: '12px 16px',
-          backgroundColor: 'rgba(7, 7, 8, 0.92)',
-          backdropFilter: 'blur(12px)',
-          WebkitBackdropFilter: 'blur(12px)',
-          borderTop: `1px solid ${colors.cardBorderStrong}`,
-          transition: 'bottom 0.3s ease',
-          display: 'flex',
-          justifyContent: 'center',
-          boxSizing: 'border-box',
+          fontFamily: "var(--font-assistant), sans-serif",
+          display: "flex",
+          flexDirection: "column",
+          minHeight: "100vh",
+          margin: 0,
+          position: "relative",
+          backgroundColor: "#070708",
+          color: "#ffffff",
         }}
       >
-        <button
-          onClick={handleClick}
-          aria-label="עבור לשאלון ההתאמה האישית"
+        <main style={{ flex: 1 }}>{children}</main>
+
+        {/* 🟢 פס ההנעה לפעולה הנייד (מופיע רק בגלילה במובייל ולא מכסה שום דבר חשוב) */}
+        <StickyMobileCta />
+
+        {/* 🟢 כפתור WhatsApp צף קבוע */}
+        <a
+          href="https://wa.me/972559939351"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="צרו קשר בוואטסאפ"
           style={{
-            ...primaryButton,
-            width: '100%',
-            maxWidth: '460px',
-            padding: '14px 24px',
-            fontSize: '16px',
-            boxShadow: '0 4px 20px rgba(212, 175, 55, 0.3)',
+            position: "fixed",
+            bottom: "85px", // מורם מעט כדי שלא יתנגש עם ה-Sticky CTA
+            left: "20px",
+            backgroundColor: "#25D366",
+            color: "#FFFFFF",
+            borderRadius: "50px",
+            padding: "10px 18px",
+            display: "flex",
+            alignItems: "center",
+            gap: "8px",
+            boxShadow: "0 4px 16px rgba(0,0,0,0.4)",
+            zIndex: 40,
+            textDecoration: "none",
+            fontWeight: "700",
+            fontSize: "14px",
+            transition: "transform 0.2s ease",
           }}
         >
-          אני רוצה להתחיל ←
-        </button>
-      </div>
-    </>
+          <span style={{ fontSize: "18px" }}>💬</span>
+          <span>דבר איתי</span>
+        </a>
+      </body>
+    </html>
   );
 }
