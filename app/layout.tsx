@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Assistant } from "next/font/google";
+import Link from "next/link";
 import "./globals.css";
 
 const assistant = Assistant({
@@ -62,6 +63,62 @@ export default function RootLayout({
           <span style={{ fontSize: "18px" }}>💬</span>
           <span>דבר איתי</span>
         </a>
+
+        {/* 🔻 פוטר בתחתית האתר (תקנון, פרטיות, נגישות) */}
+        <footer
+          style={{
+            backgroundColor: "#0d0d0f",
+            borderTop: "1px solid #1f1f24",
+            padding: "24px 16px",
+            textAlign: "center",
+            marginTop: "auto",
+          }}
+        >
+          <div
+            style={{
+              maxWidth: "1200px",
+              margin: "0 auto",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              gap: "12px",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                gap: "20px",
+                flexWrap: "wrap",
+                justifyContent: "center",
+                fontSize: "14px",
+              }}
+            >
+              <Link
+                href="/terms"
+                style={{ color: "#a1a1aa", textDecoration: "none" }}
+              >
+                תקנון תנאי שימוש
+              </Link>
+              <span style={{ color: "#3f3f46" }}>|</span>
+              <Link
+                href="/privacy"
+                style={{ color: "#a1a1aa", textDecoration: "none" }}
+              >
+                מדיניות פרטיות
+              </Link>
+              <span style={{ color: "#3f3f46" }}>|</span>
+              <Link
+                href="/accessibility"
+                style={{ color: "#a1a1aa", textDecoration: "none" }}
+              >
+                הצהרת נגישות
+              </Link>
+            </div>
+            <p style={{ color: "#71717a", fontSize: "12px", margin: 0 }}>
+              © {new Date().getFullYear()} FITCOR. כל הזכויות שמורות.
+            </p>
+          </div>
+        </footer>
       </body>
     </html>
   );
