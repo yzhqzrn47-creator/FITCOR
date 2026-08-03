@@ -62,32 +62,6 @@ export default function RootLayout({
           {children}
         </main>
 
-        {/* 🟢 כפתור WhatsApp צף */}
-        <a
-          href="https://wa.me/972559939351"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{
-            position: "fixed",
-            bottom: "20px",
-            left: "20px",
-            backgroundColor: "#25D366",
-            color: "#FFFFFF",
-            borderRadius: "50px",
-            padding: "12px 20px",
-            display: "flex",
-            alignItems: "center",
-            gap: "8px",
-            boxShadow: "0 4px 12px rgba(0,0,0,0.3)",
-            zIndex: 9999,
-            textDecoration: "none",
-            fontWeight: "bold",
-            fontSize: "15px"
-          }}
-        >
-          <span>דבר איתי ב-WhatsApp</span>
-        </a>
-
         {/* פוטר משפטי וקישורי נגישות מקוריים ל-Shopify */}
         <footer style={{
           backgroundColor: "#000000",
