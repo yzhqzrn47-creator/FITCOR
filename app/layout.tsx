@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Assistant } from "next/font/google";
 import "./globals.css";
-import StickyMobileCta from "./components/StickyMobileCta"; // ודא שהנתיב לתיקיית components תואם לפרויקט שלך
 
 const assistant = Assistant({
   subsets: ["hebrew", "latin"],
@@ -21,6 +20,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="he" dir="rtl">
+      <head>
+        {/* סגנונות פנימיים להסתרת ה-CTA בדסקטופ */}
+        <style dangerouslySetInnerHTML={{ __html: `
+          @media (min-width: 900px) {
+            #fitcor-sticky-cta { display: none !important; }
+          }
+        `}} />
+      </head>
       <body
         className={assistant.variable}
         style={{
@@ -36,9 +43,6 @@ export default function RootLayout({
       >
         <main style={{ flex: 1 }}>{children}</main>
 
-        {/* 🟢 פס ההנעה לפעולה הנייד (מופיע רק בגלילה במובייל ולא מכסה שום דבר חשוב) */}
-        <StickyMobileCta />
-
         {/* 🟢 כפתור WhatsApp צף קבוע */}
         <a
           href="https://wa.me/972559939351"
@@ -47,7 +51,7 @@ export default function RootLayout({
           aria-label="צרו קשר בוואטסאפ"
           style={{
             position: "fixed",
-            bottom: "85px", // מורם מעט כדי שלא יתנגש עם ה-Sticky CTA
+            bottom: "20px",
             left: "20px",
             backgroundColor: "#25D366",
             color: "#FFFFFF",
@@ -57,11 +61,10 @@ export default function RootLayout({
             alignItems: "center",
             gap: "8px",
             boxShadow: "0 4px 16px rgba(0,0,0,0.4)",
-            zIndex: 40,
+            zIndex: 9999,
             textDecoration: "none",
             fontWeight: "700",
             fontSize: "14px",
-            transition: "transform 0.2s ease",
           }}
         >
           <span style={{ fontSize: "18px" }}>💬</span>
