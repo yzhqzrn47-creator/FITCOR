@@ -1,5 +1,5 @@
-import Nav from './components/Nav';
-import Footer from './components/Footer';
+import Nav from '../components/Nav';
+import Footer from '../components/Footer';
 
 export const metadata = {
   title: 'יצחק עזרן אימון אישי',
@@ -57,7 +57,8 @@ export default function Home() {
               position: 'relative', borderRadius: '28px', overflow: 'hidden',
               border: '1px solid rgba(212,175,55,0.3)', boxShadow: '0 30px 70px -20px rgba(0,0,0,0.7)', aspectRatio: '1/1',
             }}>
-              <img src="/images/yitzhak-hero.jpg" alt="יצחק עזרן — FITCOR" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+              {/* הנתיב עודכן מ- /images/yitzhak-hero.jpg ל- /yitzhak-hero.jpg */}
+              <img src="/yitzhak-hero.jpg" alt="יצחק עזרן — FITCOR" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
             </div>
             <div style={{ position: 'absolute', top: '-14px', left: '-14px', width: '54px', height: '54px', borderTop: '2px solid #D4AF37', borderRight: '2px solid #D4AF37', opacity: 0.6 }} />
             <div style={{ position: 'absolute', bottom: '-14px', right: '-14px', width: '54px', height: '54px', borderBottom: '2px solid #D4AF37', borderLeft: '2px solid #D4AF37', opacity: 0.6 }} />
@@ -72,7 +73,7 @@ export default function Home() {
           {[
             { href: '/coaching', icon: '💪', title: 'ליווי אישי', desc: 'תוכנית אימונים ותזונה בנויה מאפס עבורך, מעקב שבועי וזמינות 24/6.' },
             { href: '/store', icon: '🛍️', title: 'חנות FITCOR', desc: 'ביגוד וציוד מקוריים במותג — עיצוב שחור-זהב שמרגיש כמו מותג עולמי.' },
-            { href: '/about', icon: '📖', title: 'הסיפור שלי', desc: 'מי אני,   FITCOR.' },
+            { href: '/about', icon: '📖', title: 'הסיפור שלי', desc: 'מי אני, מאיפה באתי, ולמה FITCOR קיים בכלל.' },
           ].map(c => (
             <a key={c.href} href={c.href} style={{
               display: 'block', padding: '36px 30px', borderRadius: '22px',
