@@ -1,5 +1,6 @@
-import Nav from '../components/Nav';
-import Footer from '../components/Footer';
+import Image from 'next/image';
+import Nav from '../../components/Nav';
+import Footer from '../../components/Footer';
 
 export const metadata = {
   title: 'חנות FITCOR | יצחק עזרן אימון אישי',
@@ -29,8 +30,14 @@ export default function Store() {
         <div style={{ maxWidth: '1140px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(260px,1fr))', gap: '28px' }}>
           {products.map((p) => (
             <div key={p.title} style={{ borderRadius: '22px', overflow: 'hidden', border: '1px solid rgba(212,175,55,0.15)', backgroundColor: 'rgba(255,255,255,0.02)' }}>
-              <div style={{ aspectRatio: '3/4', backgroundColor: '#0d0d0e', overflow: 'hidden' }}>
-                <img src={p.img} alt={p.title} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+              <div style={{ aspectRatio: '3/4', backgroundColor: '#0d0d0e', overflow: 'hidden', position: 'relative' }}>
+                <Image 
+                  src={p.img} 
+                  alt={p.title} 
+                  fill 
+                  style={{ objectFit: 'cover' }} 
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                />
               </div>
               <div style={{ padding: '22px' }}>
                 <h3 style={{ fontSize: '16.5px', fontWeight: 800, margin: '0 0 8px' }}>{p.title}</h3>
@@ -45,7 +52,7 @@ export default function Store() {
       </section>
 
       <section style={{ padding: '80px 24px', borderTop: '1px solid rgba(212,175,55,0.1)', backgroundColor: '#050506', textAlign: 'center' }}>
-        <h2 style={{ fontSize: '1.8rem', fontWeight: 900, margin: '0 0 16px' }}>כל הקולקציה נמצאת בחנות המלאה</h2>
+        <h2 style={{ fontSize: '1.8rem', fontWeight: 900, margin: '0 0 16px' }}>כל הקולקציה נמצאת בחנות המותג</h2>
         <p style={{ color: '#a1a1aa', fontSize: '15px', maxWidth: '480px', margin: '0 auto 32px' }}>מידות, צבעים, משלוחים ותשלום מאובטח — הכול בחנות הרשמית שלנו.</p>
         <a href="https://shop.fitcor.online" target="_blank" rel="noopener noreferrer" style={{
           display: 'inline-block', backgroundColor: '#D4AF37', color: '#070708', padding: '17px 40px',
