@@ -1,91 +1,69 @@
 'use client';
 import React, { useState } from 'react';
+import Nav from '../components/Nav';
+import Footer from '../components/Footer';
 
 export default function Contact() {
-  const MY_PHONE_NUMBER = "972559939351"; // <-- כאן אתה מחליף למספר הוואטסאפ האמיתי שלך!
-
   const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
-  const [messageText, setMessageText] = useState('');
+  const [message, setMessage] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!name || !phone) {
-      alert('נא למלא שם ומספר טלפון');
-      return;
-    }
-
-    const message = `היי! הגעתי דרך דף יצירת הקשר באתר FITCORE.\n\nפרטים:\nשם מלא: ${name}\nטלפון: ${phone}\nהודעה: ${messageText || 'לא הוזנה הודעה'}`;
-    const whatsappUrl = `https://wa.me/${MY_PHONE_NUMBER}?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
+  const sendWhatsApp = () => {
+    const phoneNumber = '972559939351';
+    const text = `היי יצחק! שמי ${name || '___'}. ${message || ''}`;
+    window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(text)}`, '_blank');
   };
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-white font-sans flex flex-col justify-between" dir="rtl">
-      
-      {/* Header */}
-      <header className="border-b border-zinc-900 px-6 py-4 max-w-7xl mx-auto w-full flex justify-between items-center">
-        <a href="/" className="text-2xl font-black tracking-wider text-lime-400">FITCORE</a>
-        <a href="/" className="text-sm font-medium text-zinc-400 hover:text-white transition">
-          ← חזרה לדף הבית
-        </a>
-      </header>
+    <main dir="rtl" style={{ backgroundColor: '#070708', color: '#fff', fontFamily: 'system-ui, sans-serif', overflowX: 'hidden', minHeight: '100vh' }}>
+      <Nav active="/contact" ctaLabel="לליווי האישי" ctaHref="/coaching" />
 
-      {/* Main Form Section */}
-      <main className="px-6 py-12 max-w-lg mx-auto w-full flex-grow flex flex-col justify-center">
-        <div className="text-center mb-8">
-          <h1 className="text-4xl font-black mb-3 text-lime-400">דברו איתי 📞</h1>
-          <p className="text-zinc-400 text-sm">
-            יש לכם שאלות לפני שמתחילים? רוצים לתאם שיחה? מלאו את הפרטים וההודעה תשלח אליי ישירות לוואטסאפ!
-          </p>
+      <section style={{ padding: '160px 24px 100px' }}>
+        <div style={{ maxWidth: '640px', margin: '0 auto', textAlign: 'center', marginBottom: '48px' }}>
+          <span style={{ fontSize: '11px', fontWeight: 900, letterSpacing: '0.22em', color: '#D4AF37' }}>GET IN TOUCH</span>
+          <h1 style={{ fontSize: 'clamp(2rem,5vw,3rem)', fontWeight: 900, margin: '16px 0' }}>יצירת קשר</h1>
+          <p style={{ color: '#a1a1aa', fontSize: '15.5px' }}>שאלה, בקשה, או סתם רוצה להגיד שלום — אני כאן.</p>
         </div>
 
-        <form onSubmit={handleSubmit} className="bg-zinc-900 p-8 rounded-3xl border border-zinc-800 text-right shadow-2xl">
-          <div className="mb-4">
-            <label className="block text-zinc-400 text-xs uppercase mb-2 font-bold">שם מלא</label>
-            <input 
-              type="text" 
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              className="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-lime-400 transition" 
-              placeholder="ישראל ישראלי" 
-              required
-            />
+        <div style={{ maxWidth: '520px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '20px' }}>
+          <div style={{ backgroundColor: 'rgba(255,255,255,0.02)', border: '1px solid rgba(212,175,55,0.25)', borderRadius: '28px', padding: '34px 26px' }}>
+            <h3 style={{ fontSize: '19px', fontWeight: 800, margin: '0 0 20px' }}>שלח הודעה ישירות לוואטסאפ</h3>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+              <input
+                type="text" placeholder="השם שלך" value={name} onChange={(e) => setName(e.target.value)}
+                style={{ padding: '16px', borderRadius: '14px', backgroundColor: '#121214', border: '1px solid rgba(212,175,55,0.2)', color: '#fff', fontSize: '15px' }}
+              />
+              <textarea
+                placeholder="מה תרצה לשאול / לספר?" value={message} onChange={(e) => setMessage(e.target.value)}
+                rows={4}
+                style={{ padding: '16px', borderRadius: '14px', backgroundColor: '#121214', border: '1px solid rgba(212,175,55,0.2)', color: '#fff', fontSize: '15px', resize: 'vertical', fontFamily: 'inherit' }}
+              />
+              <button onClick={sendWhatsApp} style={{
+                padding: '17px', backgroundColor: '#25D366', color: '#fff', border: 'none', borderRadius: '14px',
+                fontSize: '16px', fontWeight: 900, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px',
+              }}>שליחה בוואטסאפ 🚀</button>
+            </div>
           </div>
 
-          <div className="mb-4">
-            <label className="block text-zinc-400 text-xs uppercase mb-2 font-bold">מספר טלפון</label>
-            <input 
-              type="tel" 
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
-              className="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-lime-400 transition" 
-              placeholder="050-0000000" 
-              required
-            />
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+            <a href="https://wa.me/972559939351" target="_blank" rel="noopener noreferrer" style={{
+              padding: '22px', borderRadius: '18px', border: '1px solid rgba(212,175,55,0.15)', backgroundColor: 'rgba(255,255,255,0.02)',
+              textDecoration: 'none', color: '#fff', textAlign: 'center',
+            }}>
+              <div style={{ fontSize: '26px', marginBottom: '8px' }}>💬</div>
+              <div style={{ fontSize: '13.5px', fontWeight: 700 }}>וואטסאפ ישיר</div>
+            </a>
+            <a href="#" style={{
+              padding: '22px', borderRadius: '18px', border: '1px solid rgba(212,175,55,0.15)', backgroundColor: 'rgba(255,255,255,0.02)',
+              textDecoration: 'none', color: '#fff', textAlign: 'center',
+            }}>
+              <div style={{ fontSize: '26px', marginBottom: '8px' }}>📷</div>
+              <div style={{ fontSize: '13.5px', fontWeight: 700 }}>אינסטגרם</div>
+            </a>
           </div>
+        </div>
+      </section>
 
-          <div className="mb-6">
-            <label className="block text-zinc-400 text-xs uppercase mb-2 font-bold">איך אוכל לעזור לך? (אופציונלי)</label>
-            <textarea 
-              value={messageText}
-              onChange={(e) => setMessageText(e.target.value)}
-              rows={3}
-              className="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-lime-400 transition resize-none" 
-              placeholder="כאן אפשר לכתוב לי משהו בקצרה..."
-            />
-          </div>
-
-          <button type="submit" className="w-full bg-lime-400 text-black py-4 rounded-xl font-black text-lg hover:bg-lime-300 transition-all">
-            שלח הודעה לוואטסאפ שלי
-          </button>
-        </form>
-      </main>
-
-      {/* Footer */}
-      <footer className="border-t border-zinc-900 py-6 text-center text-zinc-600 text-xs">
-        © {new Date().getFullYear()} FITCORE. כל הזכויות שמורות.
-      </footer>
-    </div>
+      <Footer />
+    </main>
   );
 }
