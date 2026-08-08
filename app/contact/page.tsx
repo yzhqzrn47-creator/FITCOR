@@ -29,17 +29,41 @@ export default function Contact() {
             <h3 style={{ fontSize: '19px', fontWeight: 800, margin: '0 0 20px' }}>שלח הודעה ישירות לוואטסאפ</h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
               <input
-                type="text" placeholder="השם שלך" value={name} onChange={(e) => setName(e.target.value)}
-                style={{ padding: '16px', borderRadius: '14px', backgroundColor: '#121214', border: '1px solid rgba(212,175,55,0.2)', color: '#fff', fontSize: '15px' }}
+                type="text" 
+                placeholder="השם שלך" 
+                value={name} 
+                onChange={(e) => setName(e.target.value)}
+                style={{ 
+                  padding: '16px', 
+                  borderRadius: '14px', 
+                  backgroundColor: '#121214', 
+                  border: '1px solid rgba(212,175,55,0.2)', 
+                  color: '#fff', 
+                  fontSize: '15px',
+                  outline: 'none'
+                }}
               />
               <textarea
-                placeholder="מה תרצה לשאול / לספר?" value={message} onChange={(e) => setMessage(e.target.value)}
+                placeholder="מה תרצה לשאול / לספר?" 
+                value={message} 
+                onChange={(e) => setMessage(e.target.value)}
                 rows={4}
-                style={{ padding: '16px', borderRadius: '14px', backgroundColor: '#121214', border: '1px solid rgba(212,175,55,0.2)', color: '#fff', fontSize: '15px', resize: 'vertical', fontFamily: 'inherit' }}
+                style={{ 
+                  padding: '16px', 
+                  borderRadius: '14px', 
+                  backgroundColor: '#121214', 
+                  border: '1px solid rgba(212,175,55,0.2)', 
+                  color: '#fff', 
+                  fontSize: '15px', 
+                  resize: 'vertical', 
+                  fontFamily: 'inherit',
+                  outline: 'none'
+                }}
               />
               <button onClick={sendWhatsApp} style={{
                 padding: '17px', backgroundColor: '#25D366', color: '#fff', border: 'none', borderRadius: '14px',
                 fontSize: '16px', fontWeight: 900, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px',
+                boxShadow: '0 8px 25px rgba(37,211,102,0.25)'
               }}>שליחה בוואטסאפ 🚀</button>
             </div>
           </div>
@@ -52,7 +76,8 @@ export default function Contact() {
               <div style={{ fontSize: '26px', marginBottom: '8px' }}>💬</div>
               <div style={{ fontSize: '13.5px', fontWeight: 700 }}>וואטסאפ ישיר</div>
             </a>
-            <a href="#" style={{
+            
+            <a href="https://www.instagram.com/yitzhak.gym?igsh=OThxa2lrYXkxYjZn" target="_blank" rel="noopener noreferrer" style={{
               padding: '22px', borderRadius: '18px', border: '1px solid rgba(212,175,55,0.15)', backgroundColor: 'rgba(255,255,255,0.02)',
               textDecoration: 'none', color: '#fff', textAlign: 'center',
             }}>
