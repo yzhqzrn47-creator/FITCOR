@@ -8,8 +8,8 @@ export const metadata = {
 };
 
 const products = [
-  { img: '/images/products/fitcor-shirt-longsleeve.jpg', title: 'חולצת אימון FITCOR — שרוול ארוך', desc: 'בד דריי-פיט נושם, לוגו FC רקום בזהב.' },
-  { img: '/images/products/fitcor-jersey-sleeveless.jpg', title: 'גופיית אימון FITCOR', desc: 'גזרה אתלטית ללא שרוולים, נושמת לאימון עצים.' },
+  { img: '/images/products/fitcor-shirt-longsleeve.jpg', title: 'גופיית אימון FITCOR', desc: 'גזרה אתלטית ללא שרוולים, נושמת לאימון עצים.' },
+  { img: '/images/products/fitcor-jersey-sleeveless.jpg', title: 'חולצת אימון FITCOR — שרוול ארוך', desc: 'בד דריי-פיט נושם, לוגו FC רקום בזהב.' },
   { img: '/images/products/fitcor-bottle.jpg', title: 'בקבוק שתייה FITCOR', desc: 'בקבוק ספורט ממותג, איכות פרימיום.' },
   { img: '/images/products/fitcor-cap.jpg', title: 'כובע מצחייה FITCOR Classic', desc: 'עיצוב קלאסי, לוגו FC וזהב על שחור.' },
 ];
@@ -22,7 +22,7 @@ export default function Store() {
       <section style={{ padding: '160px 24px 60px', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at 50% 0%, rgba(212,175,55,0.08) 0%, transparent 60%)', pointerEvents: 'none' }} />
         <span style={{ fontSize: '11px', fontWeight: 900, letterSpacing: '0.22em', color: '#D4AF37', border: '1px solid rgba(212,175,55,0.3)', padding: '8px 20px', borderRadius: '9999px', display: 'inline-block', marginBottom: '22px' }}>OFFICIAL MERCH</span>
-      <h1 style={{ fontSize: 'clamp(2rem,5vw,3.2rem)', fontWeight: 900, color: '#D4AF37', margin: '0 0 16px' }}>FITCOR SHOP</h1>
+        <h1 style={{ fontSize: 'clamp(2rem,5vw,3.2rem)', fontWeight: 900, color: '#D4AF37', margin: '0 0 16px' }}>FITCOR SHOP</h1>
         <p style={{ color: '#a1a1aa', fontSize: '16px', maxWidth: '540px', margin: '0 auto' }}>ביגוד וציוד שיגרמו לך להרגיש ולהיראות כמו מקצוען. BUILT BY DISCIPLINE — לא רק סלוגן, זהות.</p>
       </section>
 
