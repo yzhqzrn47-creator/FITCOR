@@ -9,7 +9,7 @@ const assistant = Assistant({
 
 export const metadata = {
   title: "FITCOR | יצחק עזרן — אימון אישי וליווי תזונתי",
-  description: "ליווי אישי צמוד, תוכנית אימונים ותזונה מותאמת אישית. תפסיק לחכות לזמן הנכון — תתחיל לבנות תוצאות.",
+  description: "ליווי אישי הדוק, תוכנית אימונים ותזונה מותאמת אישית. תפסיק לחכות לזמן הנכון — תתחיל לבנות תוצאות.",
   verification: {
     google: "bgdMGnxyCrCiO9tDuIflkzXgTUcNvFWfOnZL-hu_wv4",
   },
