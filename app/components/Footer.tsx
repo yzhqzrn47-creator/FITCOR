@@ -16,7 +16,7 @@ export default function Footer() {
             <a href="https://wa.me/972559939351" target="_blank" rel="noopener noreferrer" style={{ color: '#25D366', textDecoration: 'none', fontWeight: 600 }}>
               WhatsApp ←
             </a>
-            <a href="https://www.instagram.com/yitzhak.gym?igsh=OThxa2lrYXkxYjZn" target="_blank" rel="noopener noreferrer" style={{ color: '#a1a1aa', textDecoration: 'none' }}>
+            <a href="https://www.instagram.com/yitzhak.gym?igsh=OThxa2lrYXkxyjZn" target="_blank" rel="noopener noreferrer" style={{ background: 'linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', fontWeight: 'bold', textDecoration: 'none' }}>
               Instagram ←
             </a>
           </div>
