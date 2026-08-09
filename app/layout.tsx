@@ -71,33 +71,46 @@ export default function RootLayout({
             gtag('config', 'G-PM1YCECG87');
           `}
         </Script>
+
+        {/* הגדרות נגישות UserWay - קטן ובצבע זהב */}
+        <Script id="userway-config" strategy="beforeInteractive">
+          {`
+            var _userway_config = {
+              account: 'YOUR_USERWAY_ACCOUNT_ID',
+              position: 3,
+              size: 'small',
+              color: '#D4AF37'
+            };
+          `}
+        </Script>
       </head>
-      <body style={{ 
-        fontFamily: "var(--font-assistant), sans-serif", 
-        display: "flex", 
-        flexDirection: "column", 
-        minHeight: "100vh", 
-        margin: 0, 
-        position: "relative",
-        overflowX: "hidden"
-      }}>
-        
+      <body
+        style={{
+          fontFamily: "var(--font-assistant), sans-serif",
+          display: "flex",
+          flexDirection: "column",
+          minHeight: "100vh",
+          margin: 0,
+          position: "relative",
+          overflowX: "hidden",
+        }}
+      >
         {/* לוגו רקע דקורטיבי לכל האתר */}
-        <img 
-          src="/images/fitcor-icon.png" 
-          alt="" 
-          aria-hidden="true" 
+        <img
+          src="/images/fitcor-icon.png"
+          alt=""
+          aria-hidden="true"
           style={{
-            position: 'absolute', 
-            top: '5%', 
-            left: '50%', 
-            transform: 'translateX(-50%)',
-            width: '90vw', 
-            maxWidth: '900px', 
-            opacity: 0.04, 
-            pointerEvents: 'none', 
+            position: "absolute",
+            top: "5%",
+            left: "50%",
+            transform: "translateX(-50%)",
+            width: "90vw",
+            maxWidth: "900px",
+            opacity: 0.04,
+            pointerEvents: "none",
             zIndex: 0,
-          }} 
+          }}
         />
 
         <main style={{ flex: 1, position: "relative", zIndex: 1 }}>
@@ -105,52 +118,65 @@ export default function RootLayout({
         </main>
 
         {/* פוטר משפטי וקישורי נגישות */}
-        <footer style={{
-          backgroundColor: "#000000",
-          color: "#A1A1AA",
-          padding: "24px 16px",
-          textAlign: "center",
-          fontSize: "14px",
-          borderTop: "1px solid #27272A",
-          width: "100%",
-          position: "relative",
-          zIndex: 1
-        }}>
-          <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "12px", flexWrap: "wrap", marginBottom: "12px" }}>
-            <a 
-              href="https://shop.fitcor.online/pages/contact" 
-              target="_blank" 
-              rel="noopener noreferrer" 
+        <footer
+          style={{
+            backgroundColor: "#000000",
+            color: "#A1A1AA",
+            padding: "24px 16px",
+            textAlign: "center",
+            fontSize: "14px",
+            borderTop: "1px solid #27272A",
+            width: "100%",
+            position: "relative",
+            zIndex: 1,
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              gap: "12px",
+              flexWrap: "wrap",
+              marginBottom: "12px",
+            }}
+          >
+            <a
+              href="https://shop.fitcor.online/pages/contact"
+              target="_blank"
+              rel="noopener noreferrer"
               style={{ color: "#A1A1AA", textDecoration: "none" }}
             >
               תקנון ותנאי שימוש
             </a>
             <span>|</span>
-            <a 
-              href="https://shop.fitcor.online/pages/מדיניות-הפרטיות" 
-              target="_blank" 
-              rel="noopener noreferrer" 
+            <a
+              href="https://shop.fitcor.online/pages/מדיניות-הפרטיות"
+              target="_blank"
+              rel="noopener noreferrer"
               style={{ color: "#A1A1AA", textDecoration: "none" }}
             >
               מדיניות פרטיות
             </a>
             <span>|</span>
-            <a 
-              href={encodeURI("https://shop.fitcor.online/pages/הצהרת-נגישות")} 
-              target="_blank" 
-              rel="noopener noreferrer" 
+            <a
+              href={encodeURI("https://shop.fitcor.online/pages/הצהרת-נגישות")}
+              target="_blank"
+              rel="noopener noreferrer"
               style={{ color: "#A1A1AA", textDecoration: "none" }}
             >
               הצהרת נגישות
             </a>
           </div>
-          <p style={{ margin: 0 }}>© {new Date().getFullYear()} FITCOR. כל הזכויות שמורות.</p>
+          <p style={{ margin: 0 }}>
+            © {new Date().getFullYear()} FITCOR. כל הזכויות שמורות.
+          </p>
         </footer>
 
         {/* תוסף נגישות - UserWay */}
-        <Script 
-          src="https://cdn.userway.org/widget.js" 
-          strategy="afterInteractive" 
+        <Script
+          src="https://cdn.userway.org/widget.js"
+          strategy="afterInteractive"
         />
       </body>
     </html>
