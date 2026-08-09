@@ -1,5 +1,5 @@
-import Nav from '@/app/components/Nav';
-import Footer from '@/app/components/Footer';
+import Nav from './components/Nav';
+import Footer from './components/Footer';
 
 export const metadata = {
   title: 'יצחק עזרן אימון אישי',
