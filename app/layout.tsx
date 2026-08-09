@@ -8,17 +8,26 @@ const assistant = Assistant({
 });
 
 export const metadata = {
-  title: "חצי שעה | THE METHOD - יצחק עזרן אימון אישי",
-  description: "הצטרפו לאימון 24/6 מותאם אישית שיעניק לכם מוטיבציה, תמיכה ומקצועיות גבוהה, מיועד לכל הרמות בכל שלב בו אתם נמצאים בהם.",
+  title: "FITCOR | יצחק עזרן — אימון אישי וליווי תזונתי",
+  description: "ליווי אישי צמוד, תוכנית אימונים ותזונה מותאמת אישית. תפסיק לחכות לזמן הנכון — תתחיל לבנות תוצאות.",
   verification: {
     google: "bgdMGnxyCrCiO9tDuIflkzXgTUcNvFWfOnZL-hu_wv4",
   },
   openGraph: {
-    title: "THE METHOD - יצחק עזרן אימון אישי",
-    description: "אימון אישי 24/6 - מוטיבציה, תמיכה ומקצועיות לכל רמה.",
+    title: "FITCOR | יצחק עזרן — אימון אישי",
+    description: "תוכניות אימון וליווי תזונתי אישי ברמה הגבוהה ביותר. BUILT BY DISCIPLINE.",
+    url: "https://fitcor.online",
+    siteName: "FITCOR",
+    images: [
+      {
+        url: "https://fitcor.online/yitzhak-hero.jpg",
+        width: 1200,
+        height: 630,
+        alt: "FITCOR — יצחק עזרן",
+      },
+    ],
     locale: "he_IL",
     type: "website",
-    images: ["/og-image.jpg"],
   },
   icons: {
     icon: "/favicon.ico",
@@ -62,7 +71,7 @@ export default function RootLayout({
           {children}
         </main>
 
-        {/* פוטר משפטי וקישורי נגישות מקוריים ל-Shopify */}
+        {/* פוטר משפטי וקישורי נגישות */}
         <footer style={{
           backgroundColor: "#000000",
           color: "#A1A1AA",
