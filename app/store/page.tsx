@@ -1,6 +1,6 @@
 import Image from 'next/image';
-import Nav from '../../components/Nav';
-import Footer from '../../components/Footer';
+import Nav from '@/app/components/Nav';
+import Footer from '@/app/components/Footer';
 
 export const metadata = {
   title: 'חנות FITCOR | יצחק עזרן אימון אישי',
