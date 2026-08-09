@@ -96,7 +96,7 @@ export default function Home() {
           display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '30px', flexWrap: 'wrap',
         }}>
           <div>
-            <h3 style={{ fontSize: '22px', fontWeight 800, margin: '0 0 8px' }}>900+ עוקבים כבר בקהילת FITCOR</h3>
+            <h3 style={{ fontSize: '22px', fontWeight: 800, margin: '0 0 8px' }}>900+ עוקבים כבר בקהילת FITCOR</h3>
             <p style={{ color: '#a1a1aa', fontSize: '14.5px', margin: 0, maxWidth: '440px' }}>עדכונים, אימונים ורגעים מהתהליך — יומיומי באינסטגרם.</p>
           </div>
           <a 
