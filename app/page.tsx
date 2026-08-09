@@ -71,7 +71,7 @@ export default function Home() {
         <div style={{ maxWidth: '1100px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(280px,1fr))', gap: '24px' }}>
           {[
             { href: '/coaching', icon: '💪', title: 'ליווי אישי', desc: 'תוכנית אימונים ותזונה בנויה מאפס עבורך, מעקב שבועי וזמינות 24/6.' },
-            { href: '/store', icon: '🛍️', title: 'חנות FITCOR', desc: 'ביגוד וציוד מקוריים במותג — עיצוב שחור-זהב שמרגיש כמו מותג עולמי.' },
+            { href: '/store', icon: '🛍️', title: 'חנות FITCOR', desc: '​ביגוד וציוד מקצועי | עיצוב יוקרתי | איכות פרימיום | סטייל בלתי מתפשר..' },
             { href: '/about', icon: '📖', title: 'הסיפור שלי', desc: 'מי אני, מאיפה באתי, ולמה FITCOR קיים בכלל.' },
           ].map(c => (
             <a key={c.href} href={c.href} style={{
