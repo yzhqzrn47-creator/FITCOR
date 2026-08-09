@@ -71,30 +71,36 @@ export default function RootLayout({
             gtag('config', 'G-PM1YCECG87');
           `}
         </Script>
-
-        {/* UserWay Config: הקטנת האייקון והעברתו לתחתית המסך */}
-        <Script id="userway-config" strategy="beforeInteractive">
-          {`
-            var _userway_config = {
-              position: 3,
-              size: 'small',
-              color: '#D4AF37'
-            };
-          `}
-        </Script>
-        <style dangerouslySetInnerHTML={{__html: `
-          div#userwayAccessibilityIcon, .uai {
-            top: auto !important;
-            bottom: 20px !important;
-            left: 20px !important;
-            transform: scale(0.7) !important;
-            transform-origin: bottom left !important;
-            z-index: 99999 !important;
-          }
-        `}} />
       </head>
-      <body style={{ fontFamily: "var(--font-assistant), sans-serif", display: "flex", flexDirection: "column", minHeight: "100vh", margin: 0, position: "relative" }}>
-        <main style={{ flex: 1 }}>
+      <body style={{ 
+        fontFamily: "var(--font-assistant), sans-serif", 
+        display: "flex", 
+        flexDirection: "column", 
+        minHeight: "100vh", 
+        margin: 0, 
+        position: "relative",
+        overflowX: "hidden"
+      }}>
+        
+        {/* לוגו רקע דקורטיבי לכל האתר */}
+        <img 
+          src="/images/fitcor-icon.png" 
+          alt="" 
+          aria-hidden="true" 
+          style={{
+            position: 'absolute', 
+            top: '5%', 
+            left: '50%', 
+            transform: 'translateX(-50%)',
+            width: '90vw', 
+            maxWidth: '900px', 
+            opacity: 0.04, 
+            pointerEvents: 'none', 
+            zIndex: 0,
+          }} 
+        />
+
+        <main style={{ flex: 1, position: "relative", zIndex: 1 }}>
           {children}
         </main>
 
@@ -106,7 +112,9 @@ export default function RootLayout({
           textAlign: "center",
           fontSize: "14px",
           borderTop: "1px solid #27272A",
-          width: "100%"
+          width: "100%",
+          position: "relative",
+          zIndex: 1
         }}>
           <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "12px", flexWrap: "wrap", marginBottom: "12px" }}>
             <a 
