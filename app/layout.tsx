@@ -8,6 +8,7 @@ const assistant = Assistant({
 });
 
 export const metadata = {
+  metadataBase: new URL("https://fitcor.online"),
   title: "FITCOR | יצחק עזרן — אימון אישי וליווי תזונתי",
   description: "ליווי אישי הדוק, תוכנית אימונים ותזונה מותאמת אישית. תפסיק לחכות לזמן הנכון — תתחיל לבנות תוצאות.",
   verification: {
@@ -20,7 +21,7 @@ export const metadata = {
     siteName: "FITCOR",
     images: [
       {
-        url: "https://fitcor.online/yitzhak-hero.jpg",
+        url: "/yitzhak-hero.jpg",
         width: 1200,
         height: 630,
         alt: "FITCOR — יצחק עזרן",
@@ -30,7 +31,12 @@ export const metadata = {
     type: "website",
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/icon.png", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: "/icon.png",
   },
 };
 
@@ -65,6 +71,27 @@ export default function RootLayout({
             gtag('config', 'G-PM1YCECG87');
           `}
         </Script>
+
+        {/* UserWay Config: הקטנת האייקון והעברתו לתחתית המסך */}
+        <Script id="userway-config" strategy="beforeInteractive">
+          {`
+            var _userway_config = {
+              position: 3,
+              size: 'small',
+              color: '#D4AF37'
+            };
+          `}
+        </Script>
+        <style dangerouslySetInnerHTML={{__html: `
+          div#userwayAccessibilityIcon, .uai {
+            top: auto !important;
+            bottom: 20px !important;
+            left: 20px !important;
+            transform: scale(0.7) !important;
+            transform-origin: bottom left !important;
+            z-index: 99999 !important;
+          }
+        `}} />
       </head>
       <body style={{ fontFamily: "var(--font-assistant), sans-serif", display: "flex", flexDirection: "column", minHeight: "100vh", margin: 0, position: "relative" }}>
         <main style={{ flex: 1 }}>
