@@ -57,7 +57,6 @@ export default function Home() {
               position: 'relative', borderRadius: '28px', overflow: 'hidden',
               border: '1px solid rgba(212,175,55,0.3)', boxShadow: '0 30px 70px -20px rgba(0,0,0,0.7)', aspectRatio: '1/1',
             }}>
-              {/* הנתיב עודכן מ- /images/yitzhak-hero.jpg ל- /yitzhak-hero.jpg */}
               <img src="/yitzhak-hero.jpg" alt="יצחק עזרן — FITCOR" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
             </div>
             <div style={{ position: 'absolute', top: '-14px', left: '-14px', width: '54px', height: '54px', borderTop: '2px solid #D4AF37', borderRight: '2px solid #D4AF37', opacity: 0.6 }} />
@@ -97,10 +96,17 @@ export default function Home() {
           display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '30px', flexWrap: 'wrap',
         }}>
           <div>
-            <h3 style={{ fontSize: '22px', fontWeight: 800, margin: '0 0 8px' }}>900+ עוקבים כבר בקהילת FITCOR</h3>
+            <h3 style={{ fontSize: '22px', fontWeight 800, margin: '0 0 8px' }}>900+ עוקבים כבר בקהילת FITCOR</h3>
             <p style={{ color: '#a1a1aa', fontSize: '14.5px', margin: 0, maxWidth: '440px' }}>עדכונים, אימונים ורגעים מהתהליך — יומיומי באינסטגרם.</p>
           </div>
-          <a href="#" style={{ border: '1px solid #fff', color: '#fff', padding: '14px 26px', borderRadius: '9999px', textDecoration: 'none', fontWeight: 800, fontSize: '14px', whiteSpace: 'nowrap' }}>עקבו באינסטגרם ←</a>
+          <a 
+            href="https://www.instagram.com/yitzhak.gym?igsh=OThxa2lrYXkxYjZn" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            style={{ border: '1px solid #fff', color: '#fff', padding: '14px 26px', borderRadius: '9999px', textDecoration: 'none', fontWeight: 800, fontSize: '14px', whiteSpace: 'nowrap' }}
+          >
+            עקבו באינסטגרם ←
+          </a>
         </div>
       </section>
 
