@@ -48,6 +48,12 @@ export default function RootLayout({
   return (
     <html lang="he" dir="rtl" className={assistant.variable}>
       <head>
+        {/* Klaviyo Tracking & Sign-up Forms */}
+        <Script
+          src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=XUVdGm"
+          strategy="afterInteractive"
+        />
+
         {/* Google Consent Mode */}
         <Script id="consent-default" strategy="beforeInteractive">
           {`
