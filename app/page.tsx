@@ -3,7 +3,7 @@ import Footer from './components/Footer';
 
 export const metadata = {
   title: 'יצחק עזרן אימון אישי',
-  description: 'FITCOR — ליווי אימונים אישי עם יצחק עזרן. תוכנית אימונים ותזונה מותאמת אישית, ליווי 24/6.',
+  description: 'FITCOR — אימונים אישיים עם יצחק עזרן. תוכניות אימונים ותזונה בהתאמה אישית וליווי מקצועי לאורך הדרך.',
 };
 
 export default function Home() {
@@ -33,7 +33,10 @@ export default function Home() {
                 display: 'block', background: 'linear-gradient(135deg,#FFE89C 0%,#D4AF37 50%,#AA7C11 100%)',
                 WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
               }}>BUILD YOURSELF.</span>
-              <span style={{ display: 'block', color: '#e4e4e7' }}>NOT EXCUSES.</span>
+              <span style={{ display: 'block', color: '#e4e4e7', marginBottom: '14px' }}>NOT EXCUSES.</span>
+              <span style={{ display: 'block', color: '#D4AF37', fontSize: 'clamp(1.1rem,2.5vw,1.4rem)', fontWeight: 700, letterSpacing: '0' }}>
+                אימונים אישיים ותהליך שינוי גוף בהתאמה אישית עם יצחק עזרן
+              </span>
             </h1>
 
             <p style={{ maxWidth: '460px', margin: '0 0 40px', color: '#a1a1aa', fontSize: 'clamp(1rem,2.5vw,1.15rem)', lineHeight: 1.75 }}>
@@ -44,7 +47,7 @@ export default function Home() {
               <a href="/coaching" style={{
                 backgroundColor: '#D4AF37', color: '#070708', padding: '18px 38px', borderRadius: '9999px',
                 fontSize: '15.5px', fontWeight: 900, textDecoration: 'none', boxShadow: '0 8px 30px rgba(212,175,55,0.35)',
-              }}>לעמוד הליווי ←</a>
+              }}>לבדיקת התאמה אישית ←</a>
               <a href="/store" style={{
                 border: '1px solid rgba(212,175,55,0.4)', color: '#D4AF37', padding: '18px 34px', borderRadius: '9999px',
                 fontSize: '15.5px', fontWeight: 800, textDecoration: 'none',
@@ -70,7 +73,7 @@ export default function Home() {
       <section style={{ padding: '100px 24px', borderTop: '1px solid rgba(212,175,55,0.1)', backgroundColor: '#050506' }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(280px,1fr))', gap: '24px' }}>
           {[
-            { href: '/coaching', icon: '💪', title: 'ליווי אישי', desc: 'תוכנית אימונים ותזונה בנויה מאפס עבורך, מעקב שבועי וזמינות 24/6.' },
+            { href: '/coaching', icon: '💪', title: 'ליווי אישי', desc: 'תוכנית אימונים ותזונה בנויה מאפס עבורך, מעקב שבועי וזמינות מיידית.' },
             { href: '/store', icon: '🛍️', title: 'חנות FITCOR', desc: '​ביגוד וציוד מקצועי | עיצוב יוקרתי | איכות פרימיום | סטייל בלתי מתפשר.' },
             { href: '/about', icon: '📖', title: 'הסיפור שלי', desc: 'מי אני, מאיפה באתי, ולמה FITCOR קיים בכלל.' },
           ].map(c => (
@@ -80,9 +83,9 @@ export default function Home() {
               textDecoration: 'none', color: '#fff',
             }}>
               <div style={{ fontSize: '32px', marginBottom: '16px' }}>{c.icon}</div>
-              <h3 style={{ fontSize: '20px', fontWeight: 800, margin: '0 0 10px' }}>{c.title}</h3>
+              <h3 style={{ fontSize: '20px', fontWeight 800, margin: '0 0 10px' }}>{c.title}</h3>
               <p style={{ color: '#a1a1aa', fontSize: '14.5px', lineHeight: 1.6, margin: '0 0 16px' }}>{c.desc}</p>
-              <span style={{ color: '#D4AF37', fontSize: '13.5px', fontWeight: 800 }}>למידע נוסף ←</span>
+              <span style={{ color: '#D4AF37', fontSize: '13.5px', fontWeight 800 }}>למידע נוסף ←</span>
             </a>
           ))}
         </div>
@@ -96,14 +99,14 @@ export default function Home() {
           display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '30px', flexWrap: 'wrap',
         }}>
           <div>
-            <h3 style={{ fontSize: '22px', fontWeight: 800, margin: '0 0 8px' }}>900+ עוקבים כבר בקהילת FITCOR</h3>
+            <h3 style={{ fontSize: '22px', fontWeight 800, margin: '0 0 8px' }}>900+ עוקבים כבר בקהילת FITCOR</h3>
             <p style={{ color: '#a1a1aa', fontSize: '14.5px', margin: 0, maxWidth: '440px' }}>עדכונים, אימונים ורגעים מהתהליך — יומיומי באינסטגרם.</p>
           </div>
           <a 
             href="https://www.instagram.com/yitzhak.gym?igsh=OThxa2lrYXkxYjZn" 
             target="_blank" 
             rel="noopener noreferrer" 
-            style={{ border: '1px solid #fff', color: '#fff', padding: '14px 26px', borderRadius: '9999px', textDecoration: 'none', fontWeight: 800, fontSize: '14px', whiteSpace: 'nowrap' }}
+            style={{ border: '1px solid #fff', color: '#fff', padding: '14px 26px', borderRadius: '9999px', textDecoration: 'none', fontWeight 800, fontSize: '14px', whiteSpace: 'nowrap' }}
           >
             עקבו באינסטגרם ←
           </a>
