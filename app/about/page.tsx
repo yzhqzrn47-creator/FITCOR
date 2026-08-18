@@ -60,7 +60,7 @@ export default function About() {
 
           <div style={{ padding: '28px', borderRadius: '20px', backgroundColor: 'rgba(255,255,255,0.02)', border: '1px solid rgba(212,175,55,0.15)' }}>
             <div style={{ fontSize: '24px', marginBottom: '12px' }}>🎯</div>
-            <h3 style={{ color: '#D4AF37', fontSize: '18px', fontWeight: 800, margin: '0 0 8px' }}>המטרה שלי בשבילך</h3>
+            <h3 style={{ color: '#D4AF37', fontSize: '18px', fontWeight 800, margin: '0 0 8px' }}>המטרה שלי בשבילך</h3>
             <p style={{ color: '#a1a1aa', fontSize: '14.5px', lineHeight: 1.6, margin: 0 }}>
               לקחת אותך מהנקודה שבה אתה נמצא היום ולבנות אותך חזק יותר, חטוב יותר ובעיקר בעל יכולת לשמור על התוצאות לאורך זמן.
             </p>
@@ -83,7 +83,7 @@ export default function About() {
       <section style={{ padding: '90px 24px', textAlign: 'center' }}>
         <h2 style={{ fontSize: 'clamp(1.7rem,4vw,2.4rem)', fontWeight: 900, margin: '0 0 12px' }}>מוכן להתחיל את השינוי שלך?</h2>
         <p style={{ color: '#a1a1aa', fontSize: '15.5px', margin: '0 0 32px' }}>בוא נבנה תוכנית מותאמת אישית לצרכים שלך.</p>
-        <a href="/coaching" style={{ display: 'inline-block', backgroundColor: '#D4AF37', color: '#070708', padding: '17px 40px', borderRadius: '9999px', fontWeight: 900, fontSize: '15.5px', textDecoration: 'none', boxShadow: '0 10px 30px -8px rgba(212,175,55,0.3)' }}>לתיאום ליווי אישי ←</a>
+        <a href="/coaching" style={{ display: 'inline-block', backgroundColor: '#D4AF37', color: '#070708', padding: '17px 40px', borderRadius: '9999px', fontWeight: 900, fontSize: '15.5px', textDecoration: 'none', boxShadow: '0 10px 30px -8px rgba(212,175,55,0.3)' }}>לתיאום תהליך אישי ←</a>
       </section>
 
       <Footer />
