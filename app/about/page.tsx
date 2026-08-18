@@ -10,7 +10,7 @@ export const metadata = {
 export default function About() {
   return (
     <main dir="rtl" style={{ backgroundColor: '#070708', color: '#fff', fontFamily: 'system-ui, sans-serif', overflowX: 'hidden' }}>
-      <Nav active="/about" ctaLabel="לליווי האישי" ctaHref="/coaching" />
+      <Nav active="/about" ctaLabel="להתחלת תהליך אישי" ctaHref="/coaching" />
 
       {/* HERO SECTION */}
       <section style={{ padding: '150px 24px 60px' }}>
@@ -60,7 +60,7 @@ export default function About() {
 
           <div style={{ padding: '28px', borderRadius: '20px', backgroundColor: 'rgba(255,255,255,0.02)', border: '1px solid rgba(212,175,55,0.15)' }}>
             <div style={{ fontSize: '24px', marginBottom: '12px' }}>🎯</div>
-            <h3 style={{ color: '#D4AF37', fontSize: '18px', fontWeight 800, margin: '0 0 8px' }}>המטרה שלי בשבילך</h3>
+            <h3 style={{ color: '#D4AF37', fontSize: '18px', fontWeight: 800, margin: '0 0 8px' }}>המטרה שלי בשבילך</h3>
             <p style={{ color: '#a1a1aa', fontSize: '14.5px', lineHeight: 1.6, margin: 0 }}>
               לקחת אותך מהנקודה שבה אתה נמצא היום ולבנות אותך חזק יותר, חטוב יותר ובעיקר בעל יכולת לשמור על התוצאות לאורך זמן.
             </p>
