@@ -145,7 +145,7 @@ export default function Coaching() {
             )}
             {surveyStep === 3 && (
               <div style={{ display: 'flex', flexDirection: 'column', gap: '22px' }}>
-                <h4 style={{ fontSize: '21px', fontWeight 900, margin: 0 }}>⚖️ מה הגובה והמשקל שלך?</h4>
+                <h4 style={{ fontSize: '21px', fontWeight: 900, margin: 0 }}>⚖️ מה הגובה והמשקל שלך?</h4>
                 <div style={{ display: 'flex', gap: '12px' }}>
                   <input type="number" placeholder="גובה (ס״מ)" value={height} onChange={(e) => setHeight(e.target.value)} style={{ flex: 1, padding: '17px', borderRadius: '16px', backgroundColor: '#121214', border: '1px solid rgba(212,175,55,0.2)', color: '#fff', fontSize: '15px' }} />
                   <input type="number" placeholder="משקל (ק״ג)" value={weight} onChange={(e) => setWeight(e.target.value)} style={{ flex: 1, padding: '17px', borderRadius: '16px', backgroundColor: '#121214', border: '1px solid rgba(212,175,55,0.2)', color: '#fff', fontSize: '15px' }} />
