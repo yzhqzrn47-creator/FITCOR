@@ -15,7 +15,7 @@ export default function Contact() {
 
   return (
     <main dir="rtl" style={{ backgroundColor: '#070708', color: '#fff', fontFamily: 'system-ui, sans-serif', overflowX: 'hidden', minHeight: '100vh' }}>
-      <Nav active="/contact" ctaLabel="לליווי האישי" ctaHref="/coaching" />
+      <Nav active="/contact" ctaLabel="להתחלת תהליך אישי" ctaHref="/coaching" />
 
       <section style={{ padding: '160px 24px 100px' }}>
         <div style={{ maxWidth: '640px', margin: '0 auto', textAlign: 'center', marginBottom: '48px' }}>
