@@ -26,7 +26,7 @@ export default function Contact() {
 
         <div style={{ maxWidth: '520px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '20px' }}>
           <div style={{ backgroundColor: 'rgba(255,255,255,0.02)', border: '1px solid rgba(212,175,55,0.25)', borderRadius: '28px', padding: '34px 26px' }}>
-            <h3 style={{ fontSize: '19px', fontWeight: 800, margin: '0 0 20px' }}>שלח הודעה ישירות לוואטסאפ</h3>
+            <h3 style={{ fontSize: '19px', fontWeight: 800, margin: '0 0 20px' }}>שלח לי הודעה ישירות לוואטסאפ</h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
               <input
                 type="text" 
